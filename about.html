@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Jatin Mishra Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { margin:0; font-family:'Poppins',sans-serif; background:#181818; color:#fff; }
+    .navbar {
+      background:rgba(24,24,24,0.92);
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:1.1rem 2.5rem;
+      box-shadow:0 4px 24px rgba(0,0,0,0.18);
+      border-radius:0 0 18px 18px;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      margin:0 auto 1.5rem auto;
+      max-width:1200px;
+      transition:background 0.3s, box-shadow 0.3s;
+    }
+    .navbar a {
+      color:#fff;
+      text-decoration:none;
+      margin:0 1.1rem;
+      font-weight:600;
+      font-size:1.08rem;
+      letter-spacing:0.02em;
+      padding:0.4rem 1rem;
+      border-radius:8px;
+      transition:background 0.2s, color 0.2s, box-shadow 0.2s;
+      position:relative;
+      display:inline-block;
+    }
+    .navbar a:hover, .navbar a:focus {
+      color:#181818;
+      background:linear-gradient(45deg,#ffbd39,#ff6b35);
+      box-shadow:0 2px 8px rgba(255,189,57,0.18);
+      text-shadow:0 1px 4px rgba(0,0,0,0.08);
+    }
+    .navbar a.active, .navbar a[aria-current="page"] {
+      color:#ffbd39;
+      background:rgba(255,189,57,0.08);
+      font-weight:700;
+      box-shadow:0 2px 8px rgba(255,189,57,0.12);
+    }
+    .nav-brand {
+      display:flex;
+      align-items:center;
+      gap:0.8rem;
+    }
+    .nav-profile-img {
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2.5px solid #ffbd39;
+      box-shadow:0 2px 8px rgba(255,189,57,0.18);
+      background:#fff;
+    }
+    .navbar .brand {
+      font-size:1.6rem;
+      color:#ffbd39;
+      font-weight:800;
+      letter-spacing:0.03em;
+      text-shadow:0 2px 8px rgba(255,189,57,0.08);
+    }
+
+    /* Header Section */
+    .about-header { background:linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding:4rem 2rem; text-align:center; position:relative; overflow:hidden; }
+    .about-header::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffbd39" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); opacity:0.3; }
+    .header-content { position:relative; z-index:2; }
+    .header-profile { width:180px; height:180px; border-radius:50%; object-fit:cover; border:6px solid #ffbd39; margin:0 auto 2rem; box-shadow:0 12px 40px rgba(255,189,57,0.4); animation:float 4s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform:translateY(0px); } 50% { transform:translateY(-15px); } }
+    .about-title { color:#ffbd39; font-size:3.5rem; font-weight:700; margin-bottom:1rem; text-shadow:0 2px 4px rgba(0,0,0,0.3); }
+    .about-subtitle { color:#eee; font-size:1.3rem; margin-bottom:2rem; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.6; }
+    .about-stats { display:flex; justify-content:center; gap:4rem; margin-top:2rem; flex-wrap:wrap; }
+    .stat-item { text-align:center; }
+    .stat-number { color:#ffbd39; font-size:2.5rem; font-weight:700; display:block; }
+    .stat-label { color:#ccc; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; }
+
+    /* Main Container */
+    .about-container { max-width:1200px; margin:0 auto; padding:3rem 2rem; }
+    
+    /* About Me Section */
+    .about-me-section { background:#222; border-radius:20px; padding:3rem; margin-bottom:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.25); }
+    .about-me-content { display:flex; gap:3rem; align-items:flex-start; }
+    .about-text { flex:2; }
+    .about-text h2 { color:#ffbd39; font-size:2.5rem; margin-bottom:1.5rem; }
+    .about-text p { color:#eee; font-size:1.1rem; line-height:1.8; margin-bottom:1.5rem; }
+    .about-highlights { flex:1; }
+    .highlight-item { background:#181818; padding:1.5rem; border-radius:15px; margin-bottom:1rem; border-left:4px solid #ffbd39; }
+    .highlight-icon { font-size:2rem; margin-bottom:0.5rem; }
+    .highlight-item h4 { color:#ffbd39; margin-bottom:0.5rem; font-size:1.2rem; }
+    .highlight-item p { color:#ccc; font-size:0.95rem; line-height:1.5; margin:0; }
+
+    /* Professional Journey */
+    .journey-section { background:#222; border-radius:20px; padding:3rem; margin-bottom:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.25); }
+    .journey-title { color:#ffbd39; font-size:2.5rem; margin-bottom:2rem; text-align:center; }
+    .journey-timeline { position:relative; }
+    .journey-timeline::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, #ffbd39, #ff6b35); transform:translateX(-50%); }
+    .timeline-item { display:flex; margin-bottom:3rem; position:relative; }
+    .timeline-item:nth-child(odd) { flex-direction:row; }
+    .timeline-item:nth-child(even) { flex-direction:row-reverse; }
+    .timeline-content { background:#181818; padding:2rem; border-radius:15px; flex:1; margin:0 2rem; position:relative; }
+    .timeline-content::before { content:''; position:absolute; top:50%; width:0; height:0; border:10px solid transparent; }
+    .timeline-item:nth-child(odd) .timeline-content::before { right:-20px; border-left-color:#181818; }
+    .timeline-item:nth-child(even) .timeline-content::before { left:-20px; border-right-color:#181818; }
+    .timeline-dot { position:absolute; left:50%; top:50%; width:20px; height:20px; background:#ffbd39; border-radius:50%; transform:translate(-50%, -50%); border:4px solid #222; }
+    .timeline-year { color:#ffbd39; font-size:1.2rem; font-weight:700; margin-bottom:0.5rem; }
+    .timeline-title { color:#fff; font-size:1.3rem; font-weight:600; margin-bottom:0.5rem; }
+    .timeline-description { color:#ccc; line-height:1.6; }
+
+    /* Skills Section */
+    .skills-section { background:#222; border-radius:20px; padding:3rem; margin-bottom:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.25); }
+    .skills-title { color:#ffbd39; font-size:2.5rem; margin-bottom:2rem; text-align:center; }
+    .skills-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; }
+    .skill-category { background:#181818; padding:2rem; border-radius:15px; border-top:4px solid #ffbd39; }
+    .skill-category h3 { color:#ffbd39; margin-bottom:1.5rem; font-size:1.4rem; }
+    .skill-list { color:#eee; line-height:2; }
+    .skill-item { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem; }
+    .skill-name { font-weight:600; }
+    .skill-level { color:#ffbd39; font-size:0.9rem; }
+
+    /* Education Section */
+    .education-section { background:#222; border-radius:20px; padding:3rem; margin-bottom:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.25); }
+    .education-title { color:#ffbd39; font-size:2.5rem; margin-bottom:2rem; text-align:center; }
+    .education-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2rem; }
+    .education-card { background:#181818; padding:2rem; border-radius:15px; border-left:4px solid #ffbd39; }
+    .education-card h3 { color:#ffbd39; margin-bottom:1rem; font-size:1.3rem; }
+    .education-card .institution { color:#fff; font-weight:600; margin-bottom:0.5rem; }
+    .education-card .year { color:#ccc; font-size:0.9rem; margin-bottom:1rem; }
+    .education-card .description { color:#eee; line-height:1.6; }
+
+    /* Values & Philosophy */
+    .values-section { background:#222; border-radius:20px; padding:3rem; margin-bottom:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.25); }
+    .values-title { color:#ffbd39; font-size:2.5rem; margin-bottom:2rem; text-align:center; }
+    .values-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; }
+    .value-card { background:#181818; padding:2rem; border-radius:15px; text-align:center; transition:transform 0.3s ease; }
+    .value-card:hover { transform:translateY(-5px); }
+    .value-icon { font-size:3rem; margin-bottom:1rem; }
+    .value-card h3 { color:#ffbd39; margin-bottom:1rem; font-size:1.3rem; }
+    .value-card p { color:#ccc; line-height:1.6; }
+
+    /* Interests Section */
+    .interests-section { background:#222; border-radius:20px; padding:3rem; margin-bottom:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.25); }
+    .interests-title { color:#ffbd39; font-size:2.5rem; margin-bottom:2rem; text-align:center; }
+    .interests-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; }
+    .interest-item { background:#181818; padding:1.5rem; border-radius:15px; text-align:center; transition:transform 0.3s ease; }
+    .interest-item:hover { transform:translateY(-3px); }
+    .interest-icon { font-size:2.5rem; margin-bottom:1rem; }
+    .interest-item h4 { color:#ffbd39; margin-bottom:0.5rem; font-size:1.1rem; }
+    .interest-item p { color:#ccc; font-size:0.9rem; line-height:1.5; }
+
+    /* Resume Section */
+    .resume-section { background:#222; border-radius:20px; padding:3rem; margin-bottom:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.25); text-align:center; }
+    .resume-title { color:#ffbd39; font-size:2.5rem; margin-bottom:2rem; }
+    .resume-content { max-width:500px; margin:0 auto; }
+    .resume-icon { font-size:4rem; margin-bottom:1rem; }
+    .resume-info h3 { color:#ffbd39; margin-bottom:0.5rem; font-size:1.4rem; }
+    .resume-info p { color:#ccc; margin-bottom:2rem; font-size:1.1rem; }
+    .resume-download-btn { background:linear-gradient(45deg,#ffbd39,#ff6b35); color:#181818; text-decoration:none; padding:1rem 2rem; border-radius:25px; font-weight:700; font-size:1.1rem; transition:.3s; display:inline-block; }
+    .resume-download-btn:hover { background:linear-gradient(45deg,#ff6b35,#ffbd39); color:#fff; transform:translateY(-3px); box-shadow:0 8px 25px rgba(255,189,57,0.3); }
+
+    /* Footer */
+    footer { background:#111; text-align:center; padding:2rem; margin-top:4rem; }
+    .footer-social { margin-bottom:1rem; }
+    .footer-social a { color:#ffbd39; text-decoration:none; margin:0 1rem; font-weight:600; transition:.2s; }
+    .footer-social a:hover { color:#ff6b35; }
+
+    @media (max-width:768px) {
+      .about-container { padding:2rem 1rem; }
+      .about-title { font-size:2.5rem; }
+      .about-stats { gap:2rem; }
+      .stat-number { font-size:2rem; }
+      .about-me-content { flex-direction:column; }
+      .timeline-item { flex-direction:column !important; }
+      .timeline-content { margin:1rem 0; }
+      .timeline-content::before { display:none; }
+      .journey-timeline::before { left:20px; }
+      .timeline-dot { left:20px; }
+      .skills-grid, .education-grid, .values-grid, .interests-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:600px) {
+      .navbar { flex-direction:column; padding:0.7rem 0.5rem; border-radius:0 0 12px 12px; }
+      .nav-brand { margin-bottom:0.5rem; }
+      .navbar a { width:100%; text-align:center; margin:0.2rem 0; }
+      .header-profile { width:150px; height:150px; }
+      .about-title { font-size:2rem; }
+    }
+    @media (max-width:900px) {
+      .navbar { padding:0.7rem 1rem; max-width:100vw; }
+      .nav-profile-img { width:38px; height:38px; }
+      .navbar .brand { font-size:1.2rem; }
+      .navbar a { margin:0 0.5rem; font-size:1rem; padding:0.3rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" class="nav-profile-img">
+      <span class="brand">Jatin Mishra</span>
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="donation.html">Support</a>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <div class="about-header">
+    <div class="header-content">
+      <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" class="header-profile">
+      <h1 class="about-title">About Me</h1>
+      <p class="about-subtitle">Passionate Junior Software Developer with expertise in PHP, React.js, and data-driven solutions. Dedicated to creating innovative web applications that solve real-world problems.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">Months Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-container">
+    <!-- About Me Section -->
+    <div class="about-me-section">
+      <div class="about-me-content">
+        <div class="about-text">
+          <h2>Who I Am</h2>
+          <p>I'm Jatin Mishra, a passionate Junior Software Developer at WAYONE IT SOLUTIONS, where I specialize in creating innovative web solutions and data-driven applications. With a strong foundation in both frontend and backend development, I enjoy uncovering insights from complex data and transforming them into meaningful business solutions.</p>
+          <p>My journey in software development began with a curiosity for problem-solving and has evolved into a passion for creating user-centric applications. I believe in writing clean, maintainable code and staying updated with the latest technologies to deliver cutting-edge solutions.</p>
+          <p>When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community. I'm always eager to learn and take on new challenges that push my boundaries.</p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">🎯</div>
+            <h4>Mission</h4>
+            <p>To create innovative web solutions that solve real-world problems and drive business growth through clean, efficient code.</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">💡</div>
+            <h4>Approach</h4>
+            <p>Problem-solving focused with attention to detail, clean code practices, and exceptional user experience design.</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🚀</div>
+            <h4>Vision</h4>
+            <p>To become a leading full-stack developer who creates impactful solutions that make a difference in people's lives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional Journey -->
+    <div class="journey-section">
+      <h2 class="journey-title">My Professional Journey</h2>
+      <div class="journey-timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2024 - Present</div>
+            <div class="timeline-title">Junior Software Developer</div>
+            <div class="timeline-description">Working at WAYONE IT SOLUTIONS, developing web applications using PHP, React.js, and modern web technologies. Contributing to full-stack development projects and collaborating with cross-functional teams.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2022 - 2024</div>
+            <div class="timeline-title">Master of Computer Application</div>
+            <div class="timeline-description">Completed MCA from PSIT Kanpur Nagar, specializing in software development, database management, and advanced programming concepts. Graduated with distinction.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2018 - 2021</div>
+            <div class="timeline-title">Bachelor of Science</div>
+            <div class="timeline-description">Earned BSc degree from CSJM University Kanpur Nagar, building a strong foundation in computer science fundamentals and programming principles.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-title">PHP Full Stack Certification</div>
+            <div class="timeline-description">Completed comprehensive PHP Full Stack course at Ducat IT Training Center, mastering modern web development practices and frameworks.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills-section">
+      <h2 class="skills-title">Technical Skills & Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Frontend Development</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">HTML5 & CSS3</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript (ES6+)</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">React.js</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Bootstrap</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Responsive Design</span>
+              <span class="skill-level">Expert</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Backend Development</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">PHP (Core)</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Laravel Framework</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">MySQL Database</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">RESTful APIs</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Magento</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Data Science & Analytics</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">SQL & Data Analysis</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Power BI</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Machine Learning</span>
+              <span class="skill-level">Basic</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Technologies</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">Git & GitHub</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">VS Code</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Cloud Services</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Docker</span>
+              <span class="skill-level">Basic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education Section -->
+    <div class="education-section">
+      <h2 class="education-title">Education & Certifications</h2>
+      <div class="education-grid">
+        <div class="education-card">
+          <h3>Master of Computer Application</h3>
+          <div class="institution">PSIT Kanpur Nagar</div>
+          <div class="year">2022 - 2024</div>
+          <div class="description">Specialized in software development, database management, and advanced programming concepts. Graduated with distinction and completed capstone projects in web development.</div>
+        </div>
+        <div class="education-card">
+          <h3>Bachelor of Science</h3>
+          <div class="institution">CSJM University Kanpur Nagar</div>
+          <div class="year">2018 - 2021</div>
+          <div class="description">Built a strong foundation in computer science fundamentals, programming principles, and mathematical concepts essential for software development.</div>
+        </div>
+        <div class="education-card">
+          <h3>PHP Full Stack Course</h3>
+          <div class="institution">Ducat IT Training Center</div>
+          <div class="year">2024</div>
+          <div class="description">Comprehensive training in modern PHP development, including frameworks, database design, and full-stack web application development practices.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values & Philosophy -->
+    <div class="values-section">
+      <h2 class="values-title">My Values & Philosophy</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h3>Excellence</h3>
+          <p>I strive for excellence in every project, ensuring high-quality code and exceptional user experiences that exceed expectations.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Collaboration</h3>
+          <p>I believe in the power of teamwork and collaboration, working closely with clients and team members to achieve shared goals.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📚</div>
+          <h3>Continuous Learning</h3>
+          <p>I'm committed to lifelong learning, constantly updating my skills and staying current with emerging technologies and best practices.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <h3>Innovation</h3>
+          <p>I approach problems with creativity and innovation, finding unique solutions that add real value to businesses and users.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interests Section -->
+    <div class="interests-section">
+      <h2 class="interests-title">Interests & Hobbies</h2>
+      <div class="interests-grid">
+        <div class="interest-item">
+          <div class="interest-icon">✈️</div>
+          <h4>Traveling</h4>
+          <p>Exploring new places and experiencing different cultures helps me gain fresh perspectives and inspiration for my work.</p>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">📸</div>
+          <h4>Travel Photography</h4>
+          <p>Capturing moments and landscapes through photography enhances my attention to detail and visual design skills.</p>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">🏏</div>
+          <h4>Playing Cricket</h4>
+          <p>Team sports teach me valuable lessons about collaboration, strategy, and working towards common goals.</p>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">📚</div>
+          <h4>Learning New Technologies</h4>
+          <p>I'm passionate about staying updated with the latest tech trends and experimenting with new frameworks and tools.</p>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">🎵</div>
+          <h4>Music</h4>
+          <p>Listening to music helps me focus and maintain creativity during long coding sessions and problem-solving.</p>
+        </div>
+        <div class="interest-item">
+          <div class="interest-icon">🏃‍♂️</div>
+          <h4>Fitness</h4>
+          <p>Maintaining physical fitness helps me stay energized and focused, essential for long hours of development work.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resume Section -->
+    <div class="resume-section">
+      <h2 class="resume-title">Download My Resume</h2>
+      <div class="resume-content">
+        <div class="resume-icon">📄</div>
+        <div class="resume-info">
+          <h3>Jatin Mishra - Software Developer</h3>
+          <p>Comprehensive resume showcasing my skills, experience, and achievements in software development and web technologies.</p>
+        </div>
+        <a href="Jatinmishra_resume.pdf" target="_blank" class="resume-download-btn">📥 Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Footer -->
+  <footer style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d); margin-top: 2rem; padding: 2rem 2rem 1.5rem; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 32px rgba(0,0,0,0.3);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
+      
+      <!-- Left Section - Brand & About -->
+      <div style="text-align: left;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="position: relative;">
+            <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid #ffbd39; object-fit: cover;">
+            <div style="position: absolute; top: -5px; right: -5px; width: 18px; height: 18px; background: #ffbd39; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #181818; font-weight: bold;">JM</div>
+          </div>
+          <div>
+            <h3 style="color: #ffbd39; margin: 0; font-size: 1.2rem; font-weight: 700;">Jatin Mishra</h3>
+            <p style="color: #ccc; margin: 0; font-size: 0.8rem;">Full Stack Developer</p>
+          </div>
+        </div>
+        <p style="color: #ccc; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">
+          Passionate developer creating innovative web solutions. Specializing in modern technologies and user-centric design.
+        </p>
+        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+          <a href="https://www.instagram.com/jatinmishra8?igsh=NWhiNHJ0NGp0bTgw" target="_blank" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="Instagram">IG</a>
+          <a href="https://www.facebook.com/share/1Eh3G4v5Ro/" target="_blank" style="background: #1877f2; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="Facebook">FB</a>
+          <a href="https://wa.me/919889090837" target="_blank" style="background: #25d366; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="WhatsApp">WA</a>
+          <a href="https://www.linkedin.com/in/jatin-mshra-659a16260" target="_blank" style="background: #0077b5; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="LinkedIn">IN</a>
+          <a href="https://github.com/jatinmishra123" target="_blank" style="background: #333; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="GitHub">GH</a>
+          <a href="mailto:jatinmishra2094011@gmail.com" style="background: #ea4335; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="Email">@</a>
+        </div>
+      </div>
+      
+      <!-- Center Section - Quick Links -->
+      <div style="text-align: center;">
+        <h3 style="color: #ffbd39; margin-bottom: 1rem; font-size: 1.1rem;">Quick Links</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="index.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">🏠 Home</a>
+          <a href="about.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">👨‍💻 About Me</a>
+          <a href="experience.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">💼 Experience</a>
+          <a href="projects.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">🚀 Projects</a>
+          <a href="contact.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">📞 Contact</a>
+          <a href="donation.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">❤️ Support</a>
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="Jatinmishra_resume.pdf" target="_blank" style="background: linear-gradient(45deg, #ffbd39, #ff6b35); color: #181818; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; display: inline-block; transition: transform 0.2s; font-size: 0.8rem;">📄 Download Resume</a>
+        </div>
+      </div>
+      
+      <!-- Right Section - Technical Skills -->
+      <div style="text-align: right;">
+        <h3 style="color: #ffbd39; margin-bottom: 1rem; font-size: 1.1rem;">Technical Skills</h3>
+        <div style="margin-bottom: 1rem;">
+          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🐘 PHP & Laravel</p>
+          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🛒 Magento</p>
+          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">⚛️ React.js</p>
+          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🎨 HTML/CSS/JS</p>
+          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🗄️ MySQL & SQL</p>
+        </div>
+        <div style="border-top: 1px solid #444; padding-top: 0.8rem;">
+          <p style="color: #ccc; margin: 0.2rem 0; font-size: 0.8rem;">📧 jatinmishra2094011@gmail.com</p>
+          <p style="color: #ccc; margin: 0.2rem 0; font-size: 0.8rem;">📞 +91 9889090837</p>
+          <p style="color: #ccc; margin: 0.2rem 0; font-size: 0.8rem;">📍 Delhi, India</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Bottom Section -->
+    <div style="border-top: 1px solid #444; margin-top: 1.5rem; padding-top: 1rem; text-align: center;">
+      <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
+        <div style="color: #ccc; font-size: 0.8rem;">
+          © <script>document.write(new Date().getFullYear());</script> Jatin Mishra. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 0.8rem; align-items: center;">
+          <span style="color: #ffbd39; font-size: 1rem;">🚀</span>
+          <span style="color: #ccc; font-size: 0.8rem; font-weight: 500;">Built with ❤️ & ☕</span>
+          <span style="color: #ffbd39; font-size: 1rem;">💻</span>
+        </div>
+        <div style="color: #ccc; font-size: 0.8rem;">
+          <span style="color: #ffbd39;">Version</span> 2.0.1
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 
