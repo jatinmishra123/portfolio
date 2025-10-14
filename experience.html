@@ -40,17 +40,66 @@
     .resume-info p { color:#eee; font-size:0.8rem; }
     .resume-download-btn { background:linear-gradient(45deg,#ffbd39,#ff6b35); color:#181818; text-decoration:none; padding:0.8rem 1.5rem; border-radius:25px; font-weight:700; font-size:1rem; transition:.2s; }
     .resume-download-btn:hover { background:linear-gradient(45deg,#ff6b35,#ffbd39); color:#fff; transform:translateY(-2px); }
-    @media (max-width:600px) {
-      .exp-container { padding:1rem 0.2rem; }
+
+    /* --- Footer Styles --- */
+    .footer { background: linear-gradient(135deg, #1a1a1a, #2d2d2d); margin-top: 2rem; padding: 2.5rem 2rem 1.5rem; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 32px rgba(0,0,0,0.3); }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .footer-column.left { text-align: left; }
+    .footer-column.center { text-align: center; }
+    .footer-column.right { text-align: right; }
+    .footer-brand { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .footer-brand-img-wrapper { position: relative; }
+    .footer-brand-img { width: 50px; height: 50px; border-radius: 50%; border: 3px solid #ffbd39; object-fit: cover; }
+    .footer-brand-initials { position: absolute; top: -5px; right: -5px; width: 18px; height: 18px; background: #ffbd39; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #181818; font-weight: bold; }
+    .footer-brand-text h3 { color: #ffbd39; margin: 0; font-size: 1.2rem; font-weight: 700; }
+    .footer-brand-text p { color: #ccc; margin: 0; font-size: 0.8rem; }
+    .footer-about { color: #ccc; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem; }
+    .footer-social-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .footer-social-links a { color: white; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem; }
+    .footer-social-links a:hover { transform: translateY(-2px); }
+    .social-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .social-fb { background: #1877f2; }
+    .social-wa { background: #25d366; }
+    .social-in { background: #0077b5; }
+    .social-gh { background: #333; }
+    .social-mail { background: #ea4335; }
+    .footer h3 { color: #ffbd39; margin-bottom: 1rem; font-size: 1.1rem; }
+    .footer-quick-links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-quick-links a { color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem; }
+    .footer-quick-links a:hover { color: #ffbd39; }
+    .footer-resume-btn { background: linear-gradient(45deg, #ffbd39, #ff6b35); color: #181818; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; display: inline-block; transition: transform 0.2s; font-size: 0.8rem; margin-top: 1rem; }
+    .footer-resume-btn:hover { transform: scale(1.05); }
+    .footer-skills-list p, .footer-contact-list p { color: #ccc; margin: 0.3rem 0; font-size: 0.8rem; }
+    .footer-contact-list { border-top: 1px solid #444; padding-top: 0.8rem; margin-top: 1rem; }
+    .footer-bottom { border-top: 1px solid #444; margin-top: 2rem; padding-top: 1.5rem; text-align: center; }
+    .footer-bottom-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom-text { color: #ccc; font-size: 0.8rem; }
+    .footer-built-with { display: flex; gap: 0.8rem; align-items: center; font-weight: 500; }
+    .footer-built-with span.emoji { color: #ffbd39; font-size: 1rem; }
+    .footer-version span { color: #ffbd39; }
+
+    /* --- Responsive Styles --- */
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-column.left, .footer-column.center, .footer-column.right { text-align: center; }
+      .footer-brand, .footer-social-links { justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+      .exp-container { padding:1rem 0.5rem; }
       .exp-card { padding:1.2rem; }
-      .exp-title { font-size:1.4rem; }
+      .exp-title { font-size:1.8rem; }
       .exp-header { flex-direction:column; text-align:center; }
-      .navbar { flex-direction:column; padding:0.7rem 1rem; }
-      .nav-brand { margin-bottom:0.5rem; }
+      .navbar { flex-direction:column; padding:1rem; }
+      .nav-brand { margin-bottom:0.8rem; }
+      .navbar div:last-of-type { text-align: center; }
+      .navbar a { margin: 0.3rem 0.5rem; }
+      .footer-bottom-content { flex-direction: column; }
     }
   </style>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="nav-brand">
       <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" class="nav-profile-img">
@@ -65,6 +114,7 @@
       <a href="donation.html">Support</a>
     </div>
   </nav>
+
   <div class="exp-container">
     <div class="exp-header">
       <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" class="exp-profile-img">
@@ -73,18 +123,18 @@
         <p class="exp-subtitle">From learning to leading, here's my path in software development</p>
       </div>
     </div>
-      <div class="exp-card">
-        <h3>MAKKPRESS TECHNOLOGY</h3>
-        <span class="exp-role">PHP Developer</span>
-        <span class="exp-duration">11-2024 – 02-2025</span>
-        <ul>
-          <li>Developed scalable backend data and eCommerce platforms using PHP, SQL, JS, Shopify.</li>
-          <li>Tested and debugged code for functionality, performance, and security.</li>
-          <li>Optimized applications for speed and efficiency.</li>
-        </ul>
-      </div>
-     
+
+    <div class="exp-card">
+      <h3>MAKKPRESS TECHNOLOGY</h3>
+      <span class="exp-role">PHP Developer</span>
+      <span class="exp-duration">11-2024 – 02-2025</span>
+      <ul>
+        <li>Developed scalable backend data and eCommerce platforms using PHP, SQL, JS, Shopify.</li>
+        <li>Tested and debugged code for functionality, performance, and security.</li>
+        <li>Optimized applications for speed and efficiency.</li>
+      </ul>
     </div>
+    
     <div class="achievements">
       <h4>Achievements</h4>
       <ul>
@@ -94,7 +144,6 @@
       </ul>
     </div>
 
-    <!-- Skills & Technologies Used Section -->
     <div class="achievements" style="margin-top:2.5rem;">
       <h4>Skills & Technologies Used</h4>
       <ul>
@@ -106,7 +155,6 @@
       </ul>
     </div>
 
-    <!-- Professional Values Section -->
     <div class="achievements" style="margin-top:2.5rem;">
       <h4>Professional Values</h4>
       <ul>
@@ -118,7 +166,6 @@
       </ul>
     </div>
 
-    <!-- Testimonials Section -->
     <div class="achievements" style="margin-top:2.5rem;">
       <h4>Testimonials</h4>
       <ul>
@@ -128,7 +175,6 @@
       </ul>
     </div>
 
-    <!-- Professional Interests & Goals Section -->
     <div class="achievements" style="margin-top:2.5rem;">
       <h4>Professional Interests & Goals</h4>
       <ul>
@@ -139,6 +185,7 @@
         <li>Staying updated with the latest tech trends</li>
       </ul>
     </div>
+
     <div class="resume-section">
       <h4>Download Resume</h4>
       <div class="resume-preview">
@@ -151,86 +198,83 @@
       </div>
     </div>
   </div>
-  <!-- Enhanced Footer -->
-  <footer style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d); margin-top: 2rem; padding: 2rem 2rem 1.5rem; border-radius: 20px 20px 0 0; box-shadow: 0 -8px 32px rgba(0,0,0,0.3);">
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
+
+  <footer class="footer">
+    <div class="footer-grid">
       
-      <!-- Left Section - Brand & About -->
-      <div style="text-align: left;">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-          <div style="position: relative;">
-            <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid #ffbd39; object-fit: cover;">
-            <div style="position: absolute; top: -5px; right: -5px; width: 18px; height: 18px; background: #ffbd39; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #181818; font-weight: bold;">JM</div>
+      <div class="footer-column left">
+        <div class="footer-brand">
+          <div class="footer-brand-img-wrapper">
+            <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" class="footer-brand-img">
+            <div class="footer-brand-initials">JM</div>
           </div>
-          <div>
-            <h3 style="color: #ffbd39; margin: 0; font-size: 1.2rem; font-weight: 700;">Jatin Mishra</h3>
-            <p style="color: #ccc; margin: 0; font-size: 0.8rem;">Full Stack Developer</p>
+          <div class="footer-brand-text">
+            <h3>Jatin Mishra</h3>
+            <p>Full Stack Developer</p>
           </div>
         </div>
-        <p style="color: #ccc; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">
+        <p class="footer-about">
           Passionate developer creating innovative web solutions. Specializing in modern technologies and user-centric design.
         </p>
-        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
-          <a href="https://www.instagram.com/jatinmishra8?igsh=NWhiNHJ0NGp0bTgw" target="_blank" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="Instagram">IG</a>
-          <a href="https://www.facebook.com/share/1Eh3G4v5Ro/" target="_blank" style="background: #1877f2; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="Facebook">FB</a>
-          <a href="https://wa.me/919889090837" target="_blank" style="background: #25d366; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="WhatsApp">WA</a>
-          <a href="https://www.linkedin.com/in/jatin-mshra-659a16260" target="_blank" style="background: #0077b5; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="LinkedIn">IN</a>
-          <a href="https://github.com/jatinmishra123" target="_blank" style="background: #333; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="GitHub">GH</a>
-          <a href="mailto:jatinmishra2094011@gmail.com" style="background: #ea4335; color: white; padding: 0.4rem; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s; font-size: 0.8rem;" title="Email">@</a>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/jatinmishra8?igsh=NWhiNHJ0NGp0bTgw" target="_blank" class="social-ig" title="Instagram">IG</a>
+          <a href="https://www.facebook.com/share/1Eh3G4v5Ro/" target="_blank" class="social-fb" title="Facebook">FB</a>
+          <a href="https://wa.me/919889090837" target="_blank" class="social-wa" title="WhatsApp">WA</a>
+          <a href="https://www.linkedin.com/in/jatin-mshra-659a16260" target="_blank" class="social-in" title="LinkedIn">IN</a>
+          <a href="https://github.com/jatinmishra123" target="_blank" class="social-gh" title="GitHub">GH</a>
+          <a href="mailto:jatinmishra2094011@gmail.com" class="social-mail" title="Email">@</a>
         </div>
       </div>
       
-      <!-- Center Section - Quick Links -->
-      <div style="text-align: center;">
-        <h3 style="color: #ffbd39; margin-bottom: 1rem; font-size: 1.1rem;">Quick Links</h3>
-        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-          <a href="index.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">🏠 Home</a>
-          <a href="about.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">👨‍💻 About Me</a>
-          <a href="experience.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">💼 Experience</a>
-          <a href="projects.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">🚀 Projects</a>
-          <a href="contact.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">📞 Contact</a>
-          <a href="donation.html" style="color: #ccc; text-decoration: none; transition: color 0.2s; font-weight: 500; font-size: 0.9rem;">❤️ Support</a>
+      <div class="footer-column center">
+        <h3>Quick Links</h3>
+        <div class="footer-quick-links">
+          <a href="index.html">🏠 Home</a>
+          <a href="about.html">👨‍💻 About Me</a>
+          <a href="experience.html">💼 Experience</a>
+          <a href="projects.html">🚀 Projects</a>
+          <a href="contact.html">📞 Contact</a>
+          <a href="donation.html">❤️ Support</a>
         </div>
-        <div style="margin-top: 1rem;">
-          <a href="Jatinmishra_resume.pdf" target="_blank" style="background: linear-gradient(45deg, #ffbd39, #ff6b35); color: #181818; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; display: inline-block; transition: transform 0.2s; font-size: 0.8rem;">📄 Download Resume</a>
+        <div>
+          <a href="Jatinmishra_resume.pdf" target="_blank" class="footer-resume-btn">📄 Download Resume</a>
         </div>
       </div>
       
-      <!-- Right Section - Technical Skills -->
-      <div style="text-align: right;">
-        <h3 style="color: #ffbd39; margin-bottom: 1rem; font-size: 1.1rem;">Technical Skills</h3>
-        <div style="margin-bottom: 1rem;">
-          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🐘 PHP & Laravel</p>
-          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🛒 Magento</p>
-          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">⚛️ React.js</p>
-          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🎨 HTML/CSS/JS</p>
-          <p style="color: #ccc; margin: 0.3rem 0; font-size: 0.8rem;">🗄️ MySQL & SQL</p>
+      <div class="footer-column right">
+        <h3>Technical Skills</h3>
+        <div class="footer-skills-list">
+          <p>🐘 PHP & Laravel</p>
+          <p>🛒 Magento</p>
+          <p>⚛️ React.js</p>
+          <p>🎨 HTML/CSS/JS</p>
+          <p>🗄️ MySQL & SQL</p>
         </div>
-        <div style="border-top: 1px solid #444; padding-top: 0.8rem;">
-          <p style="color: #ccc; margin: 0.2rem 0; font-size: 0.8rem;">📧 jatinmishra2094011@gmail.com</p>
-          <p style="color: #ccc; margin: 0.2rem 0; font-size: 0.8rem;">📞 +91 9889090837</p>
-          <p style="color: #ccc; margin: 0.2rem 0; font-size: 0.8rem;">📍 Delhi, India</p>
+        <div class="footer-contact-list">
+          <p>📧 jatinmishra2094011@gmail.com</p>
+          <p>📞 +91 9889090837</p>
+          <p>📍 Delhi, India</p>
         </div>
       </div>
       
     </div>
     
-    <!-- Bottom Section -->
-    <div style="border-top: 1px solid #444; margin-top: 1.5rem; padding-top: 1rem; text-align: center;">
-      <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
-        <div style="color: #ccc; font-size: 0.8rem;">
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="footer-bottom-text">
           © <script>document.write(new Date().getFullYear());</script> Jatin Mishra. All rights reserved.
         </div>
-        <div style="display: flex; gap: 0.8rem; align-items: center;">
-          <span style="color: #ffbd39; font-size: 1rem;">🚀</span>
-          <span style="color: #ccc; font-size: 0.8rem; font-weight: 500;">Built with ❤️ & ☕</span>
-          <span style="color: #ffbd39; font-size: 1rem;">💻</span>
+        <div class="footer-bottom-text footer-built-with">
+          <span class="emoji">🚀</span>
+          <span>Built with ❤️ & ☕</span>
+          <span class="emoji">💻</span>
         </div>
-        <div style="color: #ccc; font-size: 0.8rem;">
-          <span style="color: #ffbd39;">Version</span> 2.0.1
+        <div class="footer-bottom-text footer-version">
+          <span>Version</span> 2.0.1
         </div>
       </div>
     </div>
   </footer>
+
 </body>
-</html> 
+</html>
