@@ -28,6 +28,10 @@
       max-width:1200px;
       transition:background 0.3s, box-shadow 0.3s;
     }
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
     .navbar a {
       color:#fff;
       text-decoration:none;
@@ -74,6 +78,53 @@
       letter-spacing:0.03em;
       text-shadow:0 2px 8px rgba(255,189,57,0.08);
     }
+    
+    /* === NEW: Nav Toggle Button === */
+    .nav-toggle {
+      display: none; /* Hidden on desktop */
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001; /* Above nav links */
+    }
+    .hamburger {
+      display: block;
+      position: relative;
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger::before {
+      top: -8px;
+    }
+    .hamburger::after {
+      bottom: -8px;
+    }
+    /* 'X' animation */
+    .nav-toggle.active .hamburger {
+      background: transparent; /* Middle bar disappears */
+    }
+    .nav-toggle.active .hamburger::before {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .nav-toggle.active .hamburger::after {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
     .hero { min-height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:url('images/rear-view-programmer-working-all-night-long.jpg') center/cover no-repeat; position:relative; }
     .hero::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(24,24,24,0.7); z-index:1; }
     .hero-content { position:relative; z-index:2; text-align:center; padding: 0 1rem; }
@@ -276,10 +327,39 @@
 
     /* === Media Queries === */
     @media (max-width:900px) {
-      .navbar { padding:0.7rem 1rem; max-width:100vw; }
+      .navbar { padding:0.7rem 1.5rem; max-width:100vw; }
       .nav-profile-img { width:38px; height:38px; }
       .navbar .brand { font-size:1.2rem; }
-      .navbar a { margin:0 0.5rem; font-size:1rem; padding:0.3rem 0.7rem; }
+
+      /* === NEW: Toggle Menu Styles === */
+      .nav-toggle {
+        display: block; /* Show hamburger */
+      }
+      .nav-links {
+        display: none; /* Hide links by default */
+        position: fixed; /* Fullscreen overlay */
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(24, 24, 24, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .nav-links.active {
+        display: flex; /* Show links when active */
+      }
+      .navbar a { 
+        margin: 0; /* Remove horizontal margin */
+        font-size: 1.5rem; /* Make links bigger */
+        padding: 0.5rem 1.5rem;
+      }
 
       /* Footer Tablet */
       .footer-grid {
@@ -292,9 +372,8 @@
     }
 
     @media (max-width:600px) {
-      .navbar { flex-direction:column; padding:0.7rem 0.5rem; border-radius:0 0 12px 12px; }
-      .nav-brand { margin-bottom:0.5rem; }
-      .navbar a { width:100%; text-align:center; margin:0.2rem 0; }
+      /* === REMOVED: Old .navbar and .navbar a stacking rules === */
+
       .hero h1 { font-size:2rem; }
       .hero .typing { font-size:1.1rem; }
       .hero-subtitle { font-size:1rem; }
@@ -342,17 +421,23 @@
     <div class="nav-brand">
       <img src="images/jatinmishra.jpg (2).jpg" alt="Jatin Mishra" class="nav-profile-img">
       <span class="brand">Jatin Mishra</span>
-	      </div>
-    <div>
+	  </div>
+    
+    <button class="nav-toggle" aria-label="toggle navigation">
+      <span class="hamburger"></span>
+    </button>
+    
+        <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
       <a href="donation.html">Support</a>
-	    </div>
+	  </div>
 	  </nav>
-    <section class="hero">
+
+      <section class="hero">
     <div class="hero-content">
       <h1>Hello, I'm <span style="color:#ffbd39">Jatin Mishra</span></h1>
       <div class="typing" id="typing"></div>
@@ -469,7 +554,7 @@
             <strong>Team Lead</strong>
             <span>VOLVRIT</span>
           </div>
-        </div>
+_       </div>
         <div class="testimonial-card">
           <div class="testimonial-content">
             <p>"Working with Jatin was a great experience. He understands business requirements quickly and implements solutions efficiently."</p>
@@ -516,7 +601,7 @@
           <div class="contact-method">
             <span class="contact-icon">📧</span>
             <div>
-  S           <h4>Email</h4>
+              <h4>Email</h4>
               <a href="mailto:jatinmishra2094011@gmail.com">jatinmishra2094011@gmail.com</a>
             </div>
           </div>
@@ -528,7 +613,7 @@
             </div>
           </div>
           <div class="contact-method">
-            <span class="contact-icon">📍</span>
+  nbsp;         <span class="contact-icon">📍</span>
             <div>
               <h4>Location</h4>
               <span>Tilak Nagar, Delhi, India</span>
@@ -591,7 +676,7 @@
           <p>🗄️ MySQL & SQL</p>
         </div>
         <div class="footer-contact-info">
-          <p>📧 jatinmishra2094011@gmail.com</p>
+nbsp;       <p>📧 jatinmishra2094011@gmail.com</p>
           <p>📞 +91 9889090837</p>
           <p>📍 Delhi, India</p>
         </div>
@@ -620,7 +705,7 @@
       <button onclick="closeSitewidePopup()" style="position:absolute;top:10px;right:15px;background:none;border:none;color:#ffbd39;font-size:1.5rem;cursor:pointer;">&times;</button>
       <div style="font-size:2.5rem;margin-bottom:1rem;">👋</div>
       <div style="color:#ffbd39;font-size:1.3rem;font-weight:700;margin-bottom:0.7rem;">Welcome to My Portfolio!</div>
-      <div style="color:#eee;font-size:1rem;line-height:1.6;">Thank you for visiting. Explore my work, connect, or support a cause. Your presence means a lot!</div>
+DE     <div style="color:#eee;font-size:1rem;line-height:1.6;">Thank you for visiting. Explore my work, connect, or support a cause. Your presence means a lot!</div>
     </div>
   </div>
   <style>
@@ -654,6 +739,7 @@
       }
     }
     typeLoop();
+
     // Site-wide popup logic
     setTimeout(function() {
       var popup = document.getElementById('sitewide-popup');
@@ -667,6 +753,28 @@
     function closeSitewidePopup() {
       document.getElementById('sitewide-popup').style.display = 'none';
     }
+
+    // === NEW: Hamburger Toggle Logic ===
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        // Toggle the 'active' class on both the button (for the 'X') and the links (to show/hide)
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+    }
+    
+    // Close menu when a link is clicked (optional, but good UX)
+    if (navLinks) {
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    }
   </script>
   </body>
 </html>
