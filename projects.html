@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Jatin Mishra Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #181818;
+        color: #fff;
+      }
+      .navbar {
+        background: rgba(24, 24, 24, 0.92);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 2.5rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+        border-radius: 0 0 18px 18px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        margin: 0 auto 1.5rem auto;
+        max-width: 1200px;
+        transition: background 0.3s, box-shadow 0.3s;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 1.1rem;
+        font-weight: 600;
+        font-size: 1.08rem;
+        letter-spacing: 0.02em;
+        padding: 0.4rem 1rem;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        position: relative;
+        display: inline-block;
+      }
+      .navbar a:hover,
+      .navbar a:focus {
+        color: #181818;
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      }
+      .navbar a.active,
+      .navbar a[aria-current="page"] {
+        color: #ffbd39;
+        background: rgba(255, 189, 57, 0.08);
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.12);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .nav-profile-img {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2.5px solid #ffbd39;
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
+        background: #fff;
+      }
+      .navbar .brand {
+        font-size: 1.6rem;
+        color: #ffbd39;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-shadow: 0 2px 8px rgba(255, 189, 57, 0.08);
+      }
+
+      /* --- Styles for Nav Toggle --- */
+      .nav-toggle {
+        display: none; /* Hidden on desktop */
+        background: none;
+        border: none;
+        color: #ffbd39;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+      }
+      .nav-links {
+        display: flex; /* This is the default on desktop */
+        align-items: center;
+      }
+      /* --- End Nav Toggle Styles --- */
+
+      /* Header Section */
+      .projects-header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .projects-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffbd39" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+      }
+      .header-content {
+        position: relative;
+        z-index: 2;
+      }
+      .header-profile {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #ffbd39;
+        margin: 0 auto 2rem;
+        box-shadow: 0 8px 32px rgba(255, 189, 57, 0.3);
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .projects-title {
+        color: #ffbd39;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .projects-subtitle {
+        color: #eee;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+      .project-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+      .stat-item {
+        text-align: center;
+      }
+      .stat-number {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        font-weight: 700;
+        display: block;
+      }
+      .stat-label {
+        color: #ccc;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Main Container */
+      .projects-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      /* Project Categories */
+      .project-categories {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+      .category-btn {
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: 600;
+      }
+      .category-btn.active,
+      .category-btn:hover {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2rem;
+      }
+      .project-card {
+        background: #222;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+      }
+      .project-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .project-content {
+        padding: 1.8rem;
+      }
+      .project-title {
+        color: #ffbd39;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+      }
+      .project-title a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .project-title a:hover {
+        color: #ff6b35;
+      }
+      .project-description {
+        color: #eee;
+        margin-bottom: 1.2rem;
+        line-height: 1.7;
+      }
+      .project-features {
+        color: #ccc;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .tech-tag {
+        background: #333;
+        color: #ffbd39;
+        padding: 0.4rem 0.9rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid rgba(255, 189, 57, 0.3);
+      }
+      .project-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .project-link {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
+        transition: 0.2s;
+        flex: 1;
+        text-align: center;
+      }
+      .project-link:hover {
+        background: linear-gradient(45deg, #ff6b35, #ffbd39);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .project-link.secondary {
+        background: #333;
+        color: #fff;
+        border: 1px solid #ffbd39;
+      }
+      .project-link.secondary:hover {
+        background: #ffbd39;
+        color: #181818;
+      }
+
+      /* Featured Project */
+      .featured-project {
+        background: linear-gradient(135deg, #222 0%, #333 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        border: 2px solid #ffbd39;
+        position: relative;
+        overflow: hidden;
+      }
+      .featured-project::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 189, 57, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+      .featured-content {
+        position: relative;
+        z-index: 2;
+      }
+      .featured-title {
+        color: #ffbd39;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .featured-description {
+        color: #eee;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* GitHub Section */
+      .github-section {
+        background: linear-gradient(135deg, #181818 0%, #222 100%);
+        border-radius: 20px;
+        padding: 3rem;
+        margin-top: 4rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        border: 1px solid #333;
+      }
+      .github-section h3 {
+        color: #ffbd39;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+      }
+      .github-section p {
+        color: #eee;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .github-btn {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+        text-decoration: none;
+        padding: 1rem 2.5rem;
+        border-radius: 25px;
+        font-weight: 700;
+        display: inline-block;
+        transition: 0.3s;
+        font-size: 1.1rem;
+      }
+      .github-btn:hover {
+        background: linear-gradient(45deg, #ff6b35, #ffbd39);
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 189, 57, 0.3);
+      }
+
+      /* Skills Section */
+      .skills-section {
+        background: #222;
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 3rem 0;
+      }
+      .skills-title {
+        color: #ffbd39;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+      .skill-category {
+        background: #333;
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 4px solid #ffbd39;
+      }
+      .skill-category h4 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+      .skill-list {
+        color: #eee;
+        line-height: 1.8;
+      }
+
+      /* --- NEW FOOTER STYLES (Refactored from inline) --- */
+      #main-footer {
+        background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+        margin-top: 2rem;
+        padding: 2rem 2rem 1.5rem;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .footer-main-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+      }
+      .footer-col-left {
+        text-align: left;
+      }
+      .footer-col-center {
+        text-align: center;
+      }
+      .footer-col-right {
+        text-align: right;
+      }
+
+      /* Footer Content */
+      .footer-col-left .brand-logo-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-col-left .brand-logo-img-wrapper {
+        position: relative;
+      }
+      .footer-col-left .brand-logo-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid #ffbd39;
+        object-fit: cover;
+      }
+      .footer-col-left .brand-logo-initials {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 18px;
+        height: 18px;
+        background: #ffbd39;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #181818;
+        font-weight: bold;
+      }
+      .footer-col-left .brand-logo-text h3 {
+        color: #ffbd39;
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      .footer-col-left .brand-logo-text p {
+        color: #ccc;
+        margin: 0;
+        font-size: 0.8rem;
+      }
+      .footer-col-left .footer-about-text {
+        color: #ccc;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+      .footer-social-links {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .footer-social-links a {
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: white;
+        padding: 0.4rem;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.2s;
+        font-size: 0.8rem;
+      }
+      .footer-social-links a[title="Facebook"] {
+        background: #1877f2;
+      }
+      .footer-social-links a[title="WhatsApp"] {
+        background: #25d366;
+      }
+      .footer-social-links a[title="LinkedIn"] {
+        background: #0077b5;
+      }
+      .footer-social-links a[title="GitHub"] {
+        background: #333;
+      }
+      .footer-social-links a[title="Email"] {
+        background: #ea4335;
+      }
+
+      .footer-col-center h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .footer-quick-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .footer-quick-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+      .footer-col-center .footer-resume-btn-wrapper {
+        margin-top: 1rem;
+      }
+      .footer-col-center .footer-resume-btn {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-weight: 600;
+        display: inline-block;
+        transition: transform 0.2s;
+        font-size: 0.8rem;
+      }
+
+      .footer-col-right h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .footer-skills-list {
+        margin-bottom: 1rem;
+      }
+      .footer-skills-list p {
+        color: #ccc;
+        margin: 0.3rem 0;
+        font-size: 0.8rem;
+      }
+      .footer-contact-info {
+        border-top: 1px solid #444;
+        padding-top: 0.8rem;
+      }
+      .footer-contact-info p {
+        color: #ccc;
+        margin: 0.2rem 0;
+        font-size: 0.8rem;
+      }
+
+      .footer-bottom-section {
+        border-top: 1px solid #444;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        text-align: center;
+      }
+      .footer-bottom-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-copyright,
+      .footer-version {
+        color: #ccc;
+        font-size: 0.8rem;
+      }
+      .footer-built-with {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      .footer-built-with span:first-child,
+      .footer-built-with span:last-child {
+        color: #ffbd39;
+        font-size: 1rem;
+      }
+      .footer-built-with span:nth-child(2) {
+        color: #ccc;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      .footer-version span {
+        color: #ffbd39;
+      }
+      /* --- END NEW FOOTER STYLES --- */
+
+      @media (max-width: 900px) {
+        .navbar {
+          padding: 0.7rem 1rem;
+          max-width: 100vw;
+        }
+        .nav-profile-img {
+          width: 38px;
+          height: 38px;
+        }
+        .navbar .brand {
+          font-size: 1.2rem;
+        }
+        .navbar a {
+          margin: 0 0.5rem;
+          font-size: 1rem;
+          padding: 0.3rem 0.7rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .projects-container {
+          padding: 0 1rem;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .projects-title {
+          font-size: 2.5rem;
+        }
+        .project-stats {
+          gap: 2rem;
+        }
+        .stat-number {
+          font-size: 2rem;
+        }
+        .featured-title {
+          font-size: 1.5rem;
+        }
+        .header-profile {
+          width: 100px;
+          height: 100px;
+        }
+
+        /* --- FOOTER RESPONSIVENESS --- */
+        .footer-main-grid {
+          grid-template-columns: 1fr; /* Stack the 3 columns */
+          gap: 2.5rem; /* Add more space between stacked items */
+        }
+        .footer-col-left,
+        .footer-col-center,
+        .footer-col-right {
+          text-align: center; /* Center-align all content */
+        }
+        .footer-social-links {
+          justify-content: center; /* Center the social icons */
+        }
+        .brand-logo-group {
+          justify-content: center; /* Center the logo */
+        }
+        .footer-contact-info {
+          border-top: 1px solid #444;
+          padding-top: 1rem;
+          margin-top: 1rem;
+        }
+        .footer-skills-list,
+        .footer-contact-info {
+          text-align: center;
+        }
+        /* --- END FOOTER RESPONSIVENESS --- */
+      }
+
+      @media (max-width: 600px) {
+        /* --- Navbar Toggle Logic --- */
+        .navbar {
+          flex-direction: row; /* CHANGED */
+          padding: 0.7rem 1.5rem; /* Adjusted padding */
+          border-radius: 0 0 12px 12px;
+        }
+        .nav-brand {
+          margin-bottom: 0; /* CHANGED */
+        }
+
+        .nav-toggle {
+          display: block; /* Show hamburger */
+        }
+
+        .nav-links {
+          display: none; /* Hide links container by default */
+          position: absolute;
+          top: 70px; /* Adjust this value based on your navbar height */
+          left: 0;
+          right: 0;
+          background: rgba(24, 24, 24, 0.98);
+          width: 100%;
+          flex-direction: column;
+          padding: 1rem 0;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+          border-radius: 0 0 18px 18px;
+          z-index: 100;
+        }
+
+        .nav-links.show {
+          display: flex; /* Show links when toggled */
+        }
+
+        .navbar a {
+          width: 100%;
+          text-align: center;
+          margin: 0.5rem 0; /* CHANGED */
+          padding: 0.8rem 1rem; /* ADDED */
+        }
+        /* --- End Navbar Toggle --- */
+
+        .project-categories {
+          flex-direction: column;
+          align-items: center;
+        }
+        .category-btn {
+          width: 200px;
+        }
+
+        /* --- FOOTER BOTTOM BAR --- */
+        .footer-bottom-bar {
+          flex-direction: column; /* Stack copyright, built-with, version */
+          gap: 1rem;
+        }
+        /* --- END FOOTER BOTTOM BAR --- */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img
+          src="images/jatinmishra.jpg (2).jpg"
+          alt="Jatin Mishra"
+          class="nav-profile-img"
+        />
+        <span class="brand">Jatin Mishra</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="donation.html">Support</a>
+      </div>
+    </nav>
+
+    <div class="projects-header">
+      <div class="header-content">
+        <img
+          src="images/jatinmishra.jpg (2).jpg"
+          alt="Jatin Mishra"
+          class="header-profile"
+        />
+        <h1 class="projects-title">My Projects</h1>
+        <p class="projects-subtitle">
+          Explore my diverse portfolio showcasing expertise in web development,
+          eCommerce solutions, machine learning, and data analytics. Each
+          project represents a unique challenge and innovative solution.
+        </p>
+        <div class="project-stats">
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1.2</span>
+            <span class="stat-label">year Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-container">
+      <div class="project-categories">
+        <button class="category-btn active" onclick="filterProjects('all')">
+          All Projects
+        </button>
+        <button class="category-btn" onclick="filterProjects('web')">
+          Web Development
+        </button>
+        <button class="category-btn" onclick="filterProjects('ml')">
+          Machine Learning
+        </button>
+        <button class="category-btn" onclick="filterProjects('data')">
+          Data Analytics
+        </button>
+        <button class="category-btn" onclick="filterProjects('ecommerce')">
+          E-commerce
+        </button>
+      </div>
+
+      <div class="featured-project">
+        <div class="featured-content">
+          <h2 class="featured-title">
+            🌟 Featured Project: Iconfurniture E-commerce Platform
+          </h2>
+          <p class="featured-description">
+            A comprehensive PHP-based furniture e-commerce platform with
+            advanced features including category management, order processing,
+            payment integration, and a powerful admin dashboard. This project
+            demonstrates full-stack development capabilities and business logic
+            implementation.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://iconfurniture.in/"
+              target="_blank"
+              class="project-link"
+              >Live Demo</a
+            >
+            <a href="#" class="project-link secondary">Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-section">
+        <h3 class="skills-title">Technologies & Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Frontend Development</h4>
+            <div class="skill-list">
+              HTML5, CSS3, JavaScript<br />
+              Bootstrap, Responsive Design<br />
+              jQuery, AJAX<br />
+              Modern UI/UX Principles
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Backend Development</h4>
+            <div class="skill-list">
+              PHP (Core), Laravel<br />
+              MySQL Database Design<br />
+              RESTful APIs<br />
+              Server Management
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data Visualization</h4>
+            <div class="skill-list">
+              Power BI, SQL<br />
+              Data Visualization<br />
+              Analytics & Reporting
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Tools & Platforms</h4>
+            <div class="skill-list">
+              Git & GitHub, VS Code<br />
+              Tableau<br />
+              AWS, Cloud Services<br />
+              Docker, CI/CD
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card" data-category="ecommerce web">
+          <img
+            src="images/icon.png"
+            alt="Iconfurniture"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">
+              <a href="https://iconfurniture.in/" target="_blank"
+                >Ecommerce Website – Iconfurniture</a
+              >
+            </h3>
+            <p class="project-description">
+              Designed and built a comprehensive PHP-based furniture store with
+              advanced features including category-wise browsing, order
+              management, payment processing, and a robust admin dashboard.
+            </p>
+            <p class="project-features">
+              • User authentication & profiles<br />• Shopping cart & checkout
+              system<br />• Admin panel with analytics<br />• Mobile-responsive
+              design
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Bootstrap</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://iconfurniture.in/"
+                target="_blank"
+                class="project-link"
+                >Live Demo</a
+              >
+              <a href="#" class="project-link secondary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <img src="images/glaztech.png" alt="GlazTech" class="project-image" />
+          <div class="project-content">
+            <h3 class="project-title">
+              <a href="https://www.glaz-tech.com/" target="_blank"
+                >GlazTech Company Website</a
+              >
+            </h3>
+            <p class="project-description">
+              Developed a fully responsive website for GlazTech, a glass and
+              aluminum installation company, featuring custom admin panel,
+              service showcase, and lead generation capabilities.
+            </p>
+            <p class="project-features">
+              • Custom admin panel<br />• Service portfolio showcase<br />•
+              Contact form integration<br />• SEO optimization
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Core PHP</span>
+              <span class="tech-tag">Admin Panel</span>
+              <span class="tech-tag">Responsive</span>
+              <span class="tech-tag">SEO</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://www.glaz-tech.com/"
+                target="_blank"
+                class="project-link"
+                >Live Demo</a
+              >
+              <a href="#" class="project-link secondary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <img
+            src="images/ashok.png"
+            alt="Ashok Kumar Portfolio"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">
+              <a href="https://ashokkumarsharma.com/" target="_blank"
+                >Ashok Kumar Portfolio</a
+              >
+            </h3>
+            <p class="project-description">
+              Personal portfolio website built using PHP to showcase skills,
+              experience, and project galleries with responsive design and
+              modern UI/UX principles.
+            </p>
+            <p class="project-features">
+              • Dynamic content management<br />• Project gallery system<br />•
+              Contact form integration<br />• Professional design
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">Portfolio</span>
+              <span class="tech-tag">Responsive</span>
+              <span class="tech-tag">Gallery</span>
+              <span class="tech-tag">CMS</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://ashokkumarsharma.com/"
+                target="_blank"
+                class="project-link"
+                >Live Demo</a
+              >
+              <a href="#" class="project-link secondary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="ml">
+          <img
+            src="images/rm373batch5-blogbanner-02.jpg"
+            alt="ML Weather Forecast"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">ML Weather Forecast Using IoT</h3>
+            <p class="project-description">
+              Developed a sophisticated weather prediction system combining IoT
+              sensors and machine learning algorithms for early flood detection
+              and environmental monitoring.
+            </p>
+            <p class="project-features">
+              • Real-time data collection<br />• Predictive modeling<br />•
+              Early warning system<br />• IoT integration
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">IoT</span>
+              <span class="tech-tag">Data Analysis</span>
+              <span class="tech-tag">TensorFlow</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details</a>
+              <a href="#" class="project-link secondary">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="data">
+          <img
+            src="images/ai-technology-brain-background-digital-transformation-concept.jpg"
+            alt="SQL Sales Dashboard"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">SQL Sales Dashboard</h3>
+            <p class="project-description">
+              Created a comprehensive Power BI dashboard using SQL to visualize
+              and track online sales trends across multiple regions in India,
+              providing actionable business insights.
+            </p>
+            <p class="project-features">
+              • Interactive dashboards<br />• Regional analysis<br />• Trend
+              visualization<br />• KPI tracking
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Data Visualization</span>
+              <span class="tech-tag">Analytics</span>
+              <span class="tech-tag">DAX</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details</a>
+              <a href="#" class="project-link secondary">Report</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="data ml">
+          <img
+            src="images/close-up-man-shopping-with-laptop.jpg"
+            alt="Sales Forecast"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">Sales Forecast – Time Series</h3>
+            <p class="project-description">
+              Implemented advanced time series forecasting using ARIMA and
+              Prophet models for predicting future sales of a retail store,
+              significantly improving business forecasting accuracy.
+            </p>
+            <p class="project-features">
+              • Time series analysis<br />• Multiple model comparison<br />•
+              Seasonal decomposition<br />• Forecast validation
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">ARIMA</span>
+              <span class="tech-tag">Prophet</span>
+              <span class="tech-tag">Time Series</span>
+              <span class="tech-tag">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details</a>
+              <a href="#" class="project-link secondary">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="ml data">
+          <img
+            src="images/proj_5.jpg"
+            alt="Customer Segmentation"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">
+              Customer Segmentation using Clustering
+            </h3>
+            <p class="project-description">
+              Built a sophisticated customer segmentation model using k-means
+              clustering for targeted marketing of financial products, improving
+              campaign effectiveness by 40%.
+            </p>
+            <p class="project-features">
+              • Unsupervised learning<br />• Feature engineering<br />• Cluster
+              analysis<br />• Marketing insights
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">K-means</span>
+              <span class="tech-tag">Clustering</span>
+              <span class="tech-tag">Marketing</span>
+              <span class="tech-tag">Scikit-learn</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details</a>
+              <a href="#" class="project-link secondary">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <img
+            src="images/proj_1.jpg"
+            alt="Portfolio Website"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <p class="project-description">
+              Modern, responsive portfolio website showcasing professional
+              skills, projects, and experience with interactive elements and
+              smooth animations.
+            </p>
+            <p class="project-features">
+              • Responsive design<br />• Interactive animations<br />• Contact
+              form integration<br />• SEO optimized
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Bootstrap</span>
+              <span class="tech-tag">AOS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Live Demo</a>
+              <a href="#" class="project-link secondary">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="github-section">
+        <h3>🚀 More Projects on GitHub</h3>
+        <p>
+          I love to solve business problems & uncover hidden data stories. My
+          GitHub profile contains additional projects, code samples, and
+          contributions to open-source projects. Check out more of my work!
+        </p>
+        <a
+          href="https://github.com/jatinmishra123"
+          target="_blank"
+          class="github-btn"
+          >View GitHub Profile</a
+        >
+      </div>
+    </div>
+
+    <footer id="main-footer">
+      <div class="footer-main-grid">
+        <div class="footer-col-left">
+          <div class="brand-logo-group">
+            <div class="brand-logo-img-wrapper">
+              <img
+                src="images/jatinmishra.jpg (2).jpg"
+                alt="Jatin Mishra"
+                class="brand-logo-img"
+              />
+              <div class="brand-logo-initials">JM</div>
+            </div>
+            <div class="brand-logo-text">
+              <h3>Jatin Mishra</h3>
+              <p>Full Stack Developer</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            Passionate developer creating innovative web solutions. Specializing
+            in modern technologies and user-centric design.
+          </p>
+          <div class="footer-social-links">
+            <a
+              href="https://www.instagram.com/jatinmishra8?igsh=NWhiNHJ0NGp0bTgw"
+              target="_blank"
+              title="Instagram"
+              >IG</a
+            >
+            <a
+              href="https://www.facebook.com/share/1Eh3G4v5Ro/"
+              target="_blank"
+              title="Facebook"
+              >FB</a
+            >
+            <a
+              href="https://wa.me/919889090837"
+              target="_blank"
+              title="WhatsApp"
+              >WA</a
+            >
+            <a
+              href="https://www.linkedin.com/in/jatin-mshra-659a16260"
+              target="_blank"
+              title="LinkedIn"
+              >IN</a
+            >
+            <a
+              href="https://github.com/jatinmishra123"
+              target="_blank"
+              title="GitHub"
+              >GH</a
+            >
+            <a href="mailto:jatinmishra2094011@gmail.com" title="Email">@</a>
+          </div>
+        </div>
+
+        <div class="footer-col-center">
+          <h3>Quick Links</h3>
+          <div class="footer-quick-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="about.html">👨‍💻 About Me</a>
+            <a href="experience.html">💼 Experience</a>
+            <a href="projects.html">🚀 Projects</a>
+            <a href="contact.html">📞 Contact</a>
+            <a href="donation.html">❤️ Support</a>
+          </div>
+          <div class="footer-resume-btn-wrapper">
+            <a
+              href="Jatinmishra_resume.pdf"
+              target="_blank"
+              class="footer-resume-btn"
+              >📄 Download Resume</a
+            >
+          </div>
+        </div>
+
+        <div class="footer-col-right">
+          <h3>Technical Skills</h3>
+          <div class="footer-skills-list">
+            <p>🐘 PHP & Laravel</p>
+            <p>🛒 Magento</p>
+            <p>⚛️ React.js</p>
+            <p>🎨 HTML/CSS/JS</p>
+            <p>🗄️ MySQL & SQL</p>
+          </div>
+          <div class="footer-contact-info">
+            <p>📧 jatinmishra2094011@gmail.com</p>
+            <p>📞 +91 9889090837</p>
+            <p>📍 Delhi, India</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-section">
+        <div class="footer-bottom-bar">
+          <div class="footer-copyright">
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Jatin Mishra. All rights reserved.
+          </div>
+          <div class="footer-built-with">
+            <span>🚀</span>
+            <span>Built with ❤️ & ☕</span>
+            <span>💻</span>
+          </div>
+          <div class="footer-version"><span>Version</span> 2.0.1</div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // --- New Nav Toggle Script ---
+      const navToggle = document.getElementById("nav-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      }
+      // --- End Nav Toggle Script ---
+
+      // Project filtering functionality
+      function filterProjects(category) {
+        const cards = document.querySelectorAll(".project-card");
+        const buttons = document.querySelectorAll(".category-btn");
+
+        // Update active button
+        buttons.forEach((btn) => {
+          if (
+            btn.textContent.toLowerCase().includes(category) ||
+            (category === "all" &&
+              btn.textContent.toLowerCase().includes("all"))
+          ) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        // Filter cards
+        cards.forEach((card) => {
+          const cardCategories = card.getAttribute("data-category");
+          if (category === "all" || cardCategories.includes(category)) {
+            card.style.display = "block";
+            card.style.animation = "fadeIn 0.5s ease-in";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // Add fade-in animation
+      const style = document.createElement("style");
+      style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>

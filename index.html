@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Jatin Mishra Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Base styles from about.html */
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #181818;
+        color: #fff;
+      }
+      .navbar {
+        background: rgba(24, 24, 24, 0.92);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 2.5rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+        border-radius: 0 0 18px 18px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        margin: 0 auto 1.5rem auto;
+        max-width: 1200px;
+        transition: background 0.3s, box-shadow 0.3s;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 1.1rem;
+        font-weight: 600;
+        font-size: 1.08rem;
+        letter-spacing: 0.02em;
+        padding: 0.4rem 1rem;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        position: relative;
+        display: inline-block;
+      }
+      .navbar a:hover,
+      .navbar a:focus {
+        color: #181818;
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      }
+      .navbar a.active,
+      .navbar a[aria-current="page"] {
+        color: #ffbd39;
+        background: rgba(255, 189, 57, 0.08);
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.12);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .nav-profile-img {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2.5px solid #ffbd39;
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
+        background: #fff;
+      }
+      .navbar .brand {
+        font-size: 1.6rem;
+        color: #ffbd39;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-shadow: 0 2px 8px rgba(255, 189, 57, 0.08);
+      }
+
+      /* --- Styles for Nav Toggle --- */
+      .nav-toggle {
+        display: none; /* Hidden on desktop */
+        background: none;
+        border: none;
+        color: #ffbd39;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+      }
+      .nav-links {
+        display: flex; /* This is the default on desktop */
+        align-items: center;
+      }
+      /* --- End Nav Toggle Styles --- */
+
+      /* Shared container style */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* --- New Content Styles from your code --- */
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url("images/rear-view-programmer-working-all-night-long.jpg")
+          center/cover no-repeat;
+        position: relative;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(24, 24, 24, 0.7);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 0 1rem;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .hero .typing {
+        color: #ffbd39;
+        font-size: 1.5rem;
+        min-height: 2.2rem;
+        font-weight: 600;
+      }
+      .hero-subtitle {
+        color: #eee;
+        font-size: 1.2rem;
+        margin: 1.5rem 0;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .cta-btn {
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+        border: none;
+        border-radius: 25px;
+        padding: 0.8rem 2.2rem;
+      }
+      .cta-btn.primary {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+      }
+      .cta-btn.secondary {
+        background: transparent;
+        color: #fff;
+        border: 2px solid #ffbd39;
+      }
+      .cta-btn.secondary:hover {
+        background: #ffbd39;
+        color: #181818;
+      }
+      .hero .cta-btn {
+        margin-top: 2rem;
+      } /* Specific hero button margin */
+      .hero .cta-btn:hover {
+        background: linear-gradient(45deg, #ff6b35, #ffbd39);
+        color: #fff;
+      }
+
+      /* Intro Section */
+      .intro-section {
+        padding: 4rem 0;
+        background: #222;
+      }
+      .intro-content {
+        text-align: center;
+      }
+      .intro-content h2 {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .intro-content > p {
+        color: #eee;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+      .highlight-item {
+        background: #181818;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+      .highlight-item:hover {
+        transform: translateY(-5px);
+      }
+      .highlight-icon {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .highlight-item h3 {
+        color: #ffbd39;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+      .highlight-item p {
+        color: #eee;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      /* Stats Section */
+      .stats-section {
+        padding: 4rem 0;
+        background: #181818;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+      .stat-item {
+        text-align: center;
+        padding: 2rem;
+        background: #222;
+        border-radius: 15px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+      .stat-number {
+        display: block;
+        color: #ffbd39;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .stat-label {
+        color: #eee;
+        font-size: 1rem;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 4rem 0;
+        background: #222;
+        text-align: center;
+      }
+      .cta-section h2 {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .cta-section p {
+        color: #eee;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 4rem 0;
+        background: #181818;
+      }
+      .services-section h2 {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      .service-card {
+        background: #222;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+      .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .service-card h3 {
+        color: #ffbd39;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .service-card p {
+        color: #eee;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+      .service-card ul {
+        list-style: none;
+        padding: 0;
+      }
+      .service-card li {
+        color: #eee;
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+      .service-card li:before {
+        content: "✓";
+        color: #ffbd39;
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+
+      /* Testimonials Section */
+      .testimonials-section {
+        padding: 4rem 0;
+        background: #222;
+      }
+      .testimonials-section h2 {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+      .testimonial-card {
+        background: #181818;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+      .testimonial-content p {
+        color: #eee;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+      .testimonial-author strong {
+        color: #ffbd39;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .testimonial-author span {
+        color: #ccc;
+        font-size: 0.9rem;
+      }
+
+      /* Latest Projects Section */
+      .latest-projects {
+        padding: 4rem 0;
+        background: #181818;
+      }
+      .latest-projects h2 {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .projects-preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+      }
+      .project-preview-card {
+        background: #222;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+      .project-preview-card:hover {
+        transform: translateY(-5px);
+      }
+      .project-preview-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+      }
+      .project-preview-content {
+        padding: 1.5rem;
+      }
+      .project-preview-content h3 {
+        color: #ffbd39;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+      .project-preview-content p {
+        color: #eee;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+      .project-link {
+        color: #ffbd39;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+      .project-link:hover {
+        color: #ff6b35;
+      }
+
+      /* Contact Preview Section */
+      .contact-preview {
+        padding: 4rem 0;
+        background: #222;
+      }
+      .contact-preview-content {
+        text-align: center;
+      }
+      .contact-preview-content h2 {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .contact-preview-content > p {
+        color: #eee;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: #181818;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+      .contact-icon {
+        font-size: 2rem;
+      }
+      .contact-method h4 {
+        color: #ffbd39;
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+      }
+      .contact-method a,
+      .contact-method span {
+        color: #eee;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .contact-method a:hover {
+        color: #ffbd39;
+      }
+
+      /* --- NEW FOOTER STYLES (Refactored from inline) --- */
+      #main-footer {
+        background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+        margin-top: 2rem;
+        padding: 2rem 2rem 1.5rem;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .footer-main-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+      }
+      .footer-col-left {
+        text-align: left;
+      }
+      .footer-col-center {
+        text-align: center;
+      }
+      .footer-col-right {
+        text-align: right;
+      }
+
+      /* Footer Content */
+      .footer-col-left .brand-logo-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-col-left .brand-logo-img-wrapper {
+        position: relative;
+      }
+      .footer-col-left .brand-logo-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid #ffbd39;
+        object-fit: cover;
+      }
+      .footer-col-left .brand-logo-initials {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 18px;
+        height: 18px;
+        background: #ffbd39;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #181818;
+        font-weight: bold;
+      }
+      .footer-col-left .brand-logo-text h3 {
+        color: #ffbd39;
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      .footer-col-left .brand-logo-text p {
+        color: #ccc;
+        margin: 0;
+        font-size: 0.8rem;
+      }
+      .footer-col-left .footer-about-text {
+        color: #ccc;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+      .footer-social-links {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .footer-social-links a {
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: white;
+        padding: 0.4rem;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.2s;
+        font-size: 0.8rem;
+      }
+      .footer-social-links a[title="Facebook"] {
+        background: #1877f2;
+      }
+      .footer-social-links a[title="WhatsApp"] {
+        background: #25d366;
+      }
+      .footer-social-links a[title="LinkedIn"] {
+        background: #0077b5;
+      }
+      .footer-social-links a[title="GitHub"] {
+        background: #333;
+      }
+      .footer-social-links a[title="Email"] {
+        background: #ea4335;
+      }
+
+      .footer-col-center h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .footer-quick-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .footer-quick-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+      .footer-col-center .footer-resume-btn-wrapper {
+        margin-top: 1rem;
+      }
+      .footer-col-center .footer-resume-btn {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-weight: 600;
+        display: inline-block;
+        transition: transform 0.2s;
+        font-size: 0.8rem;
+      }
+
+      .footer-col-right h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .footer-skills-list {
+        margin-bottom: 1rem;
+      }
+      .footer-skills-list p {
+        color: #ccc;
+        margin: 0.3rem 0;
+        font-size: 0.8rem;
+      }
+      .footer-contact-info {
+        border-top: 1px solid #444;
+        padding-top: 0.8rem;
+      }
+      .footer-contact-info p {
+        color: #ccc;
+        margin: 0.2rem 0;
+        font-size: 0.8rem;
+      }
+
+      .footer-bottom-section {
+        border-top: 1px solid #444;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        text-align: center;
+      }
+      .footer-bottom-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-copyright,
+      .footer-version {
+        color: #ccc;
+        font-size: 0.8rem;
+      }
+      .footer-built-with {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      .footer-built-with span:first-child,
+      .footer-built-with span:last-child {
+        color: #ffbd39;
+        font-size: 1rem;
+      }
+      .footer-built-with span:nth-child(2) {
+        color: #ccc;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      .footer-version span {
+        color: #ffbd39;
+      }
+      /* --- END NEW FOOTER STYLES --- */
+
+      /* --- Media Queries --- */
+      @media (max-width: 900px) {
+        .navbar {
+          padding: 0.7rem 1rem;
+          max-width: 100vw;
+        }
+        .nav-profile-img {
+          width: 38px;
+          height: 38px;
+        }
+        .navbar .brand {
+          font-size: 1.2rem;
+        }
+        .navbar a {
+          margin: 0 0.5rem;
+          font-size: 1rem;
+          padding: 0.3rem 0.7rem;
+        }
+      }
+
+      /* --- FOOTER RESPONSIVENESS --- */
+      @media (max-width: 768px) {
+        .footer-main-grid {
+          grid-template-columns: 1fr; /* Stack the 3 columns */
+          gap: 2.5rem; /* Add more space between stacked items */
+        }
+        .footer-col-left,
+        .footer-col-center,
+        .footer-col-right {
+          text-align: center; /* Center-align all content */
+        }
+        .footer-social-links {
+          justify-content: center; /* Center the social icons */
+        }
+        .brand-logo-group {
+          justify-content: center; /* Center the logo */
+        }
+        .footer-contact-info {
+          border-top: 1px solid #444;
+          padding-top: 1rem;
+          margin-top: 1rem;
+        }
+        .footer-skills-list,
+        .footer-contact-info {
+          text-align: center;
+        }
+      }
+      /* --- END FOOTER RESPONSIVENESS --- */
+
+      @media (max-width: 600px) {
+        /* --- Navbar Toggle Logic --- */
+        .navbar {
+          padding: 0.7rem 1.5rem; /* Adjusted padding */
+          border-radius: 0 0 12px 12px;
+        }
+        .nav-brand {
+          margin-bottom: 0;
+        }
+        .nav-toggle {
+          display: block; /* Show hamburger */
+        }
+        .nav-links {
+          display: none; /* Hide links container by default */
+          position: absolute;
+          top: 70px; /* Adjust this value based on your navbar height */
+          left: 0;
+          right: 0;
+          background: rgba(24, 24, 24, 0.98);
+          width: 100%;
+          flex-direction: column;
+          padding: 1rem 0;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+          border-radius: 0 0 18px 18px;
+          z-index: 100;
+        }
+        .nav-links.show {
+          display: flex; /* Show links when toggled */
+        }
+        .navbar a {
+          width: 100%;
+          text-align: center;
+          margin: 0.5rem 0;
+          padding: 0.8rem 1rem;
+        }
+        /* --- End Navbar Toggle --- */
+
+        /* Home content responsive */
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero .typing {
+          font-size: 1.1rem;
+        }
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .intro-content h2 {
+          font-size: 2rem;
+        }
+        .highlights {
+          grid-template-columns: 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cta-section h2 {
+          font-size: 2rem;
+        }
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .services-section h2 {
+          font-size: 2rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .testimonials-section h2 {
+          font-size: 2rem;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+        .latest-projects h2 {
+          font-size: 2rem;
+        }
+        .projects-preview {
+          grid-template-columns: 1fr;
+        }
+        .contact-preview-content h2 {
+          font-size: 2rem;
+        }
+        .contact-methods {
+          grid-template-columns: 1fr;
+        }
+        .contact-method {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        /* --- FOOTER BOTTOM BAR --- */
+        .footer-bottom-bar {
+          flex-direction: column; /* Stack copyright, built-with, version */
+          gap: 1rem;
+        }
+        /* --- END FOOTER BOTTOM BAR --- */
+      }
+
+      /* Popup Animation */
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img
+          src="images/jatinmishra.jpg (2).jpg"
+          alt="Jatin Mishra"
+          class="nav-profile-img"
+        />
+        <span class="brand">Jatin Mishra</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="donation.html">Support</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Hello, I'm <span style="color: #ffbd39">Jatin Mishra</span></h1>
+        <div class="typing" id="typing"></div>
+        <p class="hero-subtitle">
+          Passionate about creating innovative web solutions and turning ideas
+          into reality
+        </p>
+        <div class="hero-buttons">
+          <button
+            class="cta-btn primary"
+            onclick="window.location.href='projects.html'"
+          >
+            View My Projects
+          </button>
+          <button
+            class="cta-btn secondary"
+            onclick="window.location.href='about.html'"
+          >
+            About Me
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-content">
+          <h2>Welcome to My Portfolio</h2>
+          <p>
+            I'm a Junior Software Developer with expertise in PHP, Laravel,
+            React.js, and modern web technologies. I love building scalable
+            applications and solving complex problems.
+          </p>
+          <div class="highlights">
+            <div class="highlight-item">
+              <span class="highlight-icon">💻</span>
+              <h3>Web Development</h3>
+              <p>Full-stack development with PHP, Laravel, and React.js</p>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">🚀</span>
+              <h3>E-commerce Solutions</h3>
+              <p>Building scalable online stores and business platforms</p>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">📊</span>
+              <h3>Data Analysis</h3>
+              <p>SQL, Power BI, and machine learning projects</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1.2</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Work Together?</h2>
+        <p>Let's discuss your project and bring your ideas to life</p>
+        <div class="cta-buttons">
+          <button
+            class="cta-btn primary"
+            onclick="window.location.href='contact.html'"
+          >
+            Get In Touch
+          </button>
+          <button
+            class="cta-btn secondary"
+            onclick="window.location.href='Jatinmishra_resume.pdf'"
+            target="_blank"
+          >
+            Download Resume
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <div class="container">
+        <h2>What I Do</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Web Development</h3>
+            <p>
+              Building responsive, modern websites using PHP, Laravel, React.js,
+              and cutting-edge technologies.
+            </p>
+            <ul>
+              <li>Frontend Development</li>
+              <li>Backend Development</li>
+              <li>API Integration</li>
+              <li>Database Design</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛒</div>
+            <h3>E-commerce Solutions</h3>
+            <p>
+              Creating powerful online stores with advanced features, payment
+              gateways, and inventory management.
+            </p>
+            <ul>
+              <li>Online Store Development</li>
+              <li>Payment Integration</li>
+              <li>Order Management</li>
+              <li>Admin Dashboards</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📊</div>
+            <h3>Data Analysis</h3>
+            <p>
+              Transforming raw data into actionable insights using SQL, Power
+              BI, and machine learning.
+            </p>
+            <ul>
+              <li>Data Visualization</li>
+              <li>Business Intelligence</li>
+              <li>Predictive Analytics</li>
+              <li>Report Generation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <div class="container">
+        <h2>What People Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "Jatin is a dedicated developer who consistently delivers
+                high-quality solutions. His attention to detail and
+                problem-solving skills are exceptional."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <strong>Team Lead</strong>
+              <span>VOLVRIT</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "Working with Jatin was a great experience. He understands
+                business requirements quickly and implements solutions
+                efficiently."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <strong>Project Manager</strong>
+              <span>MAKKPRESS Technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="latest-projects">
+      <div class="container">
+        <h2>Latest Projects</h2>
+        <div class="projects-preview">
+          <div class="project-preview-card">
+            <div
+              class="project-preview-image"
+              style="background-image: url('images/icon.png')"
+            ></div>
+            <div class="project-preview-content">
+              <h3>Iconfurniture E-commerce</h3>
+              <p>
+                Complete furniture store with admin panel and payment
+                integration
+              </p>
+              <a href="projects.html" class="project-link"
+                >View All Projects →</a
+              >
+            </div>
+          </div>
+          <div class="project-preview-card">
+            <div
+              class="project-preview-image"
+              style="background-image: url('images/glaztech.png')"
+            ></div>
+            <div class="project-preview-content">
+              <h3>GlazTech Company Website</h3>
+              <p>
+                Professional website with custom admin panel and SEO
+                optimization
+              </p>
+              <a href="projects.html" class="project-link"
+                >View All Projects →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-preview">
+      <div class="container">
+        <div class="contact-preview-content">
+          <h2>Let's Start a Conversation</h2>
+          <p>
+            I'm always interested in new opportunities and exciting projects.
+            Whether you have a question or just want to say hi, I'll try my best
+            to get back to you!
+          </p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <span class="contact-icon">📧</span>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:jatinmishra2094011@gmail.com"
+                  >jatinmishra2094011@gmail.com</a
+                >
+              </div>
+            </div>
+            <div class="contact-method">
+              <span class="contact-icon">📱</span>
+              <div>
+                <h4>Phone</h4>
+                <a href="tel:9889090837">+91 9889090837</a>
+              </div>
+            </div>
+            <div class="contact-method">
+              <span class="contact-icon">📍</span>
+              <div>
+                <h4>Location</h4>
+                <span>Tilak Nagar, Delhi, India</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="sitewide-popup"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(24, 24, 24, 0.75);
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          background: #222;
+          padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+          border-radius: 20px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+          max-width: 350px;
+          text-align: center;
+          position: relative;
+          animation: popIn 0.5s cubic-bezier(0.4, 2, 0.6, 1);
+        "
+      >
+        <button
+          onclick="closeSitewidePopup()"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #ffbd39;
+            font-size: 1.5rem;
+            cursor: pointer;
+          "
+        >
+          &times;
+        </button>
+        <div style="font-size: 2.5rem; margin-bottom: 1rem">👋</div>
+        <div
+          style="
+            color: #ffbd39;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+          "
+        >
+          Welcome to My Portfolio!
+        </div>
+        <div style="color: #eee; font-size: 1rem; line-height: 1.6">
+          Thank you for visiting. Explore my work, connect, or support a cause.
+          Your presence means a lot!
+        </div>
+      </div>
+    </div>
+
+    <footer id="main-footer">
+      <div class="footer-main-grid">
+        <div class="footer-col-left">
+          <div class="brand-logo-group">
+            <div class="brand-logo-img-wrapper">
+              <img
+                src="images/jatinmishra.jpg (2).jpg"
+                alt="Jatin Mishra"
+                class="brand-logo-img"
+              />
+              <div class="brand-logo-initials">JM</div>
+            </div>
+            <div class="brand-logo-text">
+              <h3>Jatin Mishra</h3>
+              <p>Full Stack Developer</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            Passionate developer creating innovative web solutions. Specializing
+            in modern technologies and user-centric design.
+          </p>
+          <div class="footer-social-links">
+            <a
+              href="https://www.instagram.com/jatinmishra8?igsh=NWhiNHJ0NGp0bTgw"
+              target="_blank"
+              title="Instagram"
+              >IG</a
+            >
+            <a
+              href="https://www.facebook.com/share/1Eh3G4v5Ro/"
+              target="_blank"
+              title="Facebook"
+              >FB</a
+            >
+            <a
+              href="https://wa.me/919889090837"
+              target="_blank"
+              title="WhatsApp"
+              >WA</a
+            >
+            <a
+              href="https://www.linkedin.com/in/jatin-mshra-659a16260"
+              target="_blank"
+              title="LinkedIn"
+              >IN</a
+            >
+            <a
+              href="https://github.com/jatinmishra123"
+              target="_blank"
+              title="GitHub"
+              >GH</a
+            >
+            <a href="mailto:jatinmishra2094011@gmail.com" title="Email">@</a>
+          </div>
+        </div>
+
+        <div class="footer-col-center">
+          <h3>Quick Links</h3>
+          <div class="footer-quick-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="about.html">👨‍💻 About Me</a>
+            <a href="experience.html">💼 Experience</a>
+            <a href="projects.html">🚀 Projects</a>
+            <a href="contact.html">📞 Contact</a>
+            <a href="donation.html">❤️ Support</a>
+          </div>
+          <div class="footer-resume-btn-wrapper">
+            <a
+              href="Jatinmishra_resume.pdf"
+              target="_blank"
+              class="footer-resume-btn"
+              >📄 Download Resume</a
+            >
+          </div>
+        </div>
+
+        <div class="footer-col-right">
+          <h3>Technical Skills</h3>
+          <div class="footer-skills-list">
+            <p>🐘 PHP & Laravel</p>
+            <p>🛒 Magento</p>
+            <p>⚛️ React.js</p>
+            <p>🎨 HTML/CSS/JS</p>
+            <p>🗄️ MySQL & SQL</p>
+          </div>
+          <div class="footer-contact-info">
+            <p>📧 jatinmishra2094011@gmail.com</p>
+            <p>📞 +91 9889090837</p>
+            <p>📍 Delhi, India</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-section">
+        <div class="footer-bottom-bar">
+          <div class="footer-copyright">
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Jatin Mishra. All rights reserved.
+          </div>
+          <div class="footer-built-with">
+            <span>🚀</span>
+            <span>Built with ❤️ & ☕</span>
+            <span>💻</span>
+          </div>
+          <div class="footer-version"><span>Version</span> 2.0.1</div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // --- New Nav Toggle Script ---
+      const navToggle = document.getElementById("nav-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      }
+      // --- End Nav Toggle Script ---
+
+      const roles = [
+        "Software Developer",
+        "Software Engineer",
+        "Web Developer",
+        "Junior Developer",
+      ];
+      let roleIdx = 0,
+        charIdx = 0,
+        typing = true;
+      const typingDiv = document.getElementById("typing");
+      function typeLoop() {
+        if (typingDiv) {
+          // Check if element exists
+          if (typing) {
+            if (charIdx < roles[roleIdx].length) {
+              typingDiv.textContent += roles[roleIdx][charIdx++];
+              setTimeout(typeLoop, 90);
+            } else {
+              typing = false;
+              setTimeout(typeLoop, 1200);
+            }
+          } else {
+            if (charIdx > 0) {
+              typingDiv.textContent = roles[roleIdx].substring(0, --charIdx);
+              setTimeout(typeLoop, 40);
+            } else {
+              typing = true;
+              roleIdx = (roleIdx + 1) % roles.length;
+              setTimeout(typeLoop, 400);
+            }
+          }
+        }
+      }
+      // Start typing
+      typeLoop();
+
+      // Site-wide popup logic
+      setTimeout(function () {
+        var popup = document.getElementById("sitewide-popup");
+        if (popup) {
+          popup.style.display = "flex";
+          setTimeout(function () {
+            popup.style.display = "none";
+          }, 3000); // Popup auto-closes after 3 seconds
+        }
+      }, 3000); // Popup appears after 3 seconds
+
+      function closeSitewidePopup() {
+        document.getElementById("sitewide-popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

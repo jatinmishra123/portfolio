@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help the Needy - Donation Page | Jatin Mishra</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #181818;
+        color: #fff;
+      }
+      .navbar {
+        background: rgba(24, 24, 24, 0.92);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 2.5rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+        border-radius: 0 0 18px 18px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        margin: 0 auto 1.5rem auto;
+        max-width: 1200px;
+        transition: background 0.3s, box-shadow 0.3s;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 1.1rem;
+        font-weight: 600;
+        font-size: 1.08rem;
+        letter-spacing: 0.02em;
+        padding: 0.4rem 1rem;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        position: relative;
+        display: inline-block;
+      }
+      .navbar a:hover,
+      .navbar a:focus {
+        color: #181818;
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      }
+      .navbar a.active,
+      .navbar a[aria-current="page"] {
+        color: #ffbd39;
+        background: rgba(255, 189, 57, 0.08);
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.12);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .nav-profile-img {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2.5px solid #ffbd39;
+        box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
+        background: #fff;
+      }
+      .navbar .brand {
+        font-size: 1.6rem;
+        color: #ffbd39;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-shadow: 0 2px 8px rgba(255, 189, 57, 0.08);
+      }
+
+      /* --- Styles for Nav Toggle --- */
+      .nav-toggle {
+        display: none; /* Hidden on desktop */
+        background: none;
+        border: none;
+        color: #ffbd39;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+      }
+      .nav-links {
+        display: flex; /* This is the default on desktop */
+        align-items: center;
+      }
+      /* --- End Nav Toggle Styles --- */
+
+      /* Header Section */
+      .donation-header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .donation-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffbd39" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+      }
+      .header-content {
+        position: relative;
+        z-index: 2;
+      }
+      .donation-title {
+        color: #ffbd39;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .donation-subtitle {
+        color: #eee;
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+      .donation-stats {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+      .stat-item {
+        text-align: center;
+      }
+      .stat-number {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        font-weight: 700;
+        display: block;
+      }
+      .stat-label {
+        color: #ccc;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Main Container */
+      .donation-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      /* Mission Section */
+      .mission-section {
+        background: #222;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        text-align: center;
+      }
+      .mission-title {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      .mission-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .mission-text {
+        color: #eee;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .mission-highlights {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+      .mission-card {
+        background: #181818;
+        padding: 2rem;
+        border-radius: 15px;
+        border-top: 4px solid #ffbd39;
+      }
+      .mission-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .mission-card h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      .mission-card p {
+        color: #ccc;
+        line-height: 1.6;
+      }
+
+      /* QR Code Section */
+      .qr-section {
+        background: #222;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        text-align: center;
+      }
+      .qr-title {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      .qr-content {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .qr-code-container {
+        background: #181818;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 2px solid #ffbd39;
+      }
+      .qr-placeholder {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+      }
+      .qr-placeholder::before {
+        content: "QR Code";
+        color: #181818;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      .qr-instructions {
+        flex: 1;
+        max-width: 400px;
+        text-align: left;
+      }
+      .qr-instructions h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+      }
+      .qr-steps {
+        color: #eee;
+        line-height: 1.8;
+      }
+      .qr-steps ol {
+        padding-left: 1.5rem;
+      }
+      .qr-steps li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Bank Details Section */
+      .bank-section {
+        background: #222;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      }
+      .bank-title {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .bank-details {
+        background: #181818;
+        padding: 2rem;
+        border-radius: 15px;
+        border-left: 4px solid #ffbd39;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .bank-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #333;
+      }
+      .bank-row:last-child {
+        border-bottom: none;
+      }
+      .bank-label {
+        color: #ffbd39;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .bank-value {
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        background: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+      }
+      .copy-btn {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+        border: none;
+        padding: 0.3rem 0.8rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        margin-left: 1rem;
+        transition: 0.2s;
+      }
+      .copy-btn:hover {
+        background: linear-gradient(45deg, #ff6b35, #ffbd39);
+        color: #fff;
+      }
+
+      /* Donation Impact Section */
+      .impact-section {
+        background: #222;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      }
+      .impact-title {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+      .impact-card {
+        background: #181818;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .impact-card:hover {
+        transform: translateY(-5px);
+      }
+      .impact-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .impact-card h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      .impact-card p {
+        color: #ccc;
+        line-height: 1.6;
+      }
+
+      /* How to Help Section */
+      .help-section {
+        background: #222;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      }
+      .help-title {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .help-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .help-text {
+        color: #eee;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .help-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      .help-method {
+        background: #181818;
+        padding: 2rem;
+        border-radius: 15px;
+        border-left: 4px solid #ffbd39;
+      }
+      .help-method h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      .help-method p {
+        color: #ccc;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .help-method ul {
+        color: #ccc;
+        padding-left: 1.5rem;
+      }
+      .help-method li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Thank You Section */
+      .thank-section {
+        background: linear-gradient(135deg, #222 0%, #333 100%);
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .thank-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 189, 57, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+      .thank-content {
+        position: relative;
+        z-index: 2;
+      }
+      .thank-title {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      .thank-text {
+        color: #eee;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .thank-quote {
+        color: #ffbd39;
+        font-size: 1.1rem;
+        font-style: italic;
+        margin-bottom: 2rem;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: #222;
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        text-align: center;
+      }
+      .contact-title {
+        color: #ffbd39;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      .contact-info {
+        color: #eee;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .contact-email {
+        color: #ffbd39;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .contact-email:hover {
+        color: #ff6b35;
+      }
+
+      /* Thank You Popup Modal */
+      #thankyou-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(24, 24, 24, 0.85);
+        align-items: center;
+        justify-content: center;
+      }
+      #thankyou-modal .modal-content {
+        background: #222;
+        padding: 2.5rem 2rem;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        max-width: 350px;
+        text-align: center;
+        position: relative;
+      }
+      #thankyou-modal .close-button {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: none;
+        border: none;
+        color: #ffbd39;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      #thankyou-modal .modal-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      #thankyou-modal .modal-title {
+        color: #ffbd39;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+      }
+      #thankyou-modal .modal-text {
+        color: #eee;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* --- NEW FOOTER STYLES (Refactored from inline) --- */
+      #main-footer {
+        background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+        margin-top: 2rem;
+        padding: 2rem 2rem 1.5rem;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .footer-main-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+      }
+      .footer-col-left {
+        text-align: left;
+      }
+      .footer-col-center {
+        text-align: center;
+      }
+      .footer-col-right {
+        text-align: right;
+      }
+
+      /* Footer Content */
+      .footer-col-left .brand-logo-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-col-left .brand-logo-img-wrapper {
+        position: relative;
+      }
+      .footer-col-left .brand-logo-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid #ffbd39;
+        object-fit: cover;
+      }
+      .footer-col-left .brand-logo-initials {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 18px;
+        height: 18px;
+        background: #ffbd39;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #181818;
+        font-weight: bold;
+      }
+      .footer-col-left .brand-logo-text h3 {
+        color: #ffbd39;
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      .footer-col-left .brand-logo-text p {
+        color: #ccc;
+        margin: 0;
+        font-size: 0.8rem;
+      }
+      .footer-col-left .footer-about-text {
+        color: #ccc;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+      .footer-social-links {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .footer-social-links a {
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: white;
+        padding: 0.4rem;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.2s;
+        font-size: 0.8rem;
+      }
+      .footer-social-links a[title="Facebook"] {
+        background: #1877f2;
+      }
+      .footer-social-links a[title="WhatsApp"] {
+        background: #25d366;
+      }
+      .footer-social-links a[title="LinkedIn"] {
+        background: #0077b5;
+      }
+      .footer-social-links a[title="GitHub"] {
+        background: #333;
+      }
+      .footer-social-links a[title="Email"] {
+        background: #ea4335;
+      }
+
+      .footer-col-center h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .footer-quick-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .footer-quick-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+      .footer-col-center .footer-resume-btn-wrapper {
+        margin-top: 1rem;
+      }
+      .footer-col-center .footer-resume-btn {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-weight: 600;
+        display: inline-block;
+        transition: transform 0.2s;
+        font-size: 0.8rem;
+      }
+
+      .footer-col-right h3 {
+        color: #ffbd39;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .footer-skills-list {
+        margin-bottom: 1rem;
+      }
+      .footer-skills-list p {
+        color: #ccc;
+        margin: 0.3rem 0;
+        font-size: 0.8rem;
+      }
+      .footer-contact-info {
+        border-top: 1px solid #444;
+        padding-top: 0.8rem;
+      }
+      .footer-contact-info p {
+        color: #ccc;
+        margin: 0.2rem 0;
+        font-size: 0.8rem;
+      }
+
+      .footer-bottom-section {
+        border-top: 1px solid #444;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        text-align: center;
+      }
+      .footer-bottom-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-copyright,
+      .footer-version {
+        color: #ccc;
+        font-size: 0.8rem;
+      }
+      .footer-built-with {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      .footer-built-with span:first-child,
+      .footer-built-with span:last-child {
+        color: #ffbd39;
+        font-size: 1rem;
+      }
+      .footer-built-with span:nth-child(2) {
+        color: #ccc;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      .footer-version span {
+        color: #ffbd39;
+      }
+      /* --- END NEW FOOTER STYLES --- */
+
+      @media (max-width: 900px) {
+        .navbar {
+          padding: 0.7rem 1rem;
+          max-width: 100vw;
+        }
+        .nav-profile-img {
+          width: 38px;
+          height: 38px;
+        }
+        .navbar .brand {
+          font-size: 1.2rem;
+        }
+        .navbar a {
+          margin: 0 0.5rem;
+          font-size: 1rem;
+          padding: 0.3rem 0.7rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .donation-container {
+          padding: 2rem 1rem;
+        }
+        .donation-title {
+          font-size: 2.5rem;
+        }
+        .donation-stats {
+          gap: 2rem;
+        }
+        .stat-number {
+          font-size: 2rem;
+        }
+        .qr-content {
+          flex-direction: column;
+        }
+        .qr-instructions {
+          text-align: center;
+        }
+        .bank-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+        .copy-btn {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+        .impact-grid,
+        .help-methods {
+          grid-template-columns: 1fr;
+        }
+
+        /* --- FOOTER RESPONSIVENESS --- */
+        .footer-main-grid {
+          grid-template-columns: 1fr; /* Stack the 3 columns */
+          gap: 2.5rem; /* Add more space between stacked items */
+        }
+        .footer-col-left,
+        .footer-col-center,
+        .footer-col-right {
+          text-align: center; /* Center-align all content */
+        }
+        .footer-social-links {
+          justify-content: center; /* Center the social icons */
+        }
+        .brand-logo-group {
+          justify-content: center; /* Center the logo */
+        }
+        .footer-contact-info {
+          border-top: 1px solid #444;
+          padding-top: 1rem;
+          margin-top: 1rem;
+        }
+        .footer-skills-list,
+        .footer-contact-info {
+          text-align: center;
+        }
+        /* --- END FOOTER RESPONSIVENESS --- */
+      }
+
+      @media (max-width: 600px) {
+        /* --- Navbar Toggle Logic --- */
+        .navbar {
+          flex-direction: row; /* CHANGED */
+          padding: 0.7rem 1.5rem; /* Adjusted padding */
+          border-radius: 0 0 12px 12px;
+        }
+        .nav-brand {
+          margin-bottom: 0; /* CHANGED */
+        }
+
+        .nav-toggle {
+          display: block; /* Show hamburger */
+        }
+
+        .nav-links {
+          display: none; /* Hide links container by default */
+          position: absolute;
+          top: 70px; /* Adjust this value based on your navbar height */
+          left: 0;
+          right: 0;
+          background: rgba(24, 24, 24, 0.98);
+          width: 100%;
+          flex-direction: column;
+          padding: 1rem 0;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+          border-radius: 0 0 18px 18px;
+          z-index: 100;
+        }
+
+        .nav-links.show {
+          display: flex; /* Show links when toggled */
+        }
+
+        .navbar a {
+          width: 100%;
+          text-align: center;
+          margin: 0.5rem 0; /* CHANGED */
+          padding: 0.8rem 1rem; /* ADDED */
+        }
+        /* --- End Navbar Toggle --- */
+
+        .donation-title {
+          font-size: 2rem;
+        }
+
+        /* --- FOOTER BOTTOM BAR --- */
+        .footer-bottom-bar {
+          flex-direction: column; /* Stack copyright, built-with, version */
+          gap: 1rem;
+        }
+        /* --- END FOOTER BOTTOM BAR --- */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img
+          src="images/jatinmishra.jpg (2).jpg"
+          alt="Jatin Mishra"
+          class="nav-profile-img"
+        />
+        <span class="brand">Jatin Mishra</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="donation.html" class="active">Support</a>
+      </div>
+    </nav>
+
+    <div
+      id="thankyou-toast"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        bottom: 30px;
+        right: 30px;
+        min-width: 320px;
+        max-width: 90vw;
+        background: #222;
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        text-align: left;
+        transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1), opacity 0.4s;
+        opacity: 0;
+        transform: translateY(40px);
+      "
+    >
+      <button
+        onclick="closeThankYouToast()"
+        style="
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          background: none;
+          border: none;
+          color: #ffbd39;
+          font-size: 1.3rem;
+          cursor: pointer;
+        "
+      >
+        &times;
+      </button>
+      <div style="font-size: 2rem; margin-bottom: 0.5rem">🙏</div>
+      <div
+        style="
+          color: #ffbd39;
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        "
+      >
+        Thank You for Visiting!
+      </div>
+      <div style="color: #eee; font-size: 0.98rem; line-height: 1.5">
+        Your interest in helping others means a lot. Every act of kindness makes
+        the world a better place.<br />Feel free to explore the donation options
+        below.
+      </div>
+    </div>
+
+    <div
+      id="prachar-badge"
+      class="prachar-rect"
+      onclick="openPracharForm()"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 9998;
+        bottom: 30px;
+        left: 30px;
+        min-width: 220px;
+        max-width: 90vw;
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+        padding: 0.9rem 1.3rem;
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+        font-weight: 700;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        animation: pulseBadge 2s infinite alternate;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 2, 0.6, 1);
+      "
+    >
+      <span class="prachar-icon" style="font-size: 1.3rem; transition: all 0.4s"
+        >📢</span
+      >
+      <span class="prachar-text" style="transition: all 0.4s"
+        >Support a cause, donate today!
+        <span style="color: #fff; font-weight: 600"
+          >Your help matters.</span
+        ></span
+      >
+    </div>
+
+    <div
+      id="prachar-form-modal"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        bottom: 100px;
+        left: 30px;
+        background: #222;
+        padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        min-width: 270px;
+        max-width: 95vw;
+        width: 320px;
+      "
+    >
+      <button
+        onclick="closePracharForm()"
+        style="
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          background: none;
+          border: none;
+          color: #ffbd39;
+          font-size: 1.3rem;
+          cursor: pointer;
+        "
+      >
+        &times;
+      </button>
+      <form
+        id="prachar-form"
+        action="https://formsubmit.co/jatinmishra2094011@gmail.com"
+        method="POST"
+        style="display: flex; flex-direction: column; gap: 0.7rem"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Prachar Badge Submission"
+        />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <label style="color: #ffbd39; font-weight: 600"
+          >Name*<br /><input
+            name="Name"
+            required
+            style="
+              width: 100%;
+              padding: 0.4rem 0.7rem;
+              border-radius: 7px;
+              border: none;
+              margin-top: 2px;
+            "
+        /></label>
+        <label style="color: #ffbd39; font-weight: 600"
+          >Address*<br /><input
+            name="Address"
+            required
+            style="
+              width: 100%;
+              padding: 0.4rem 0.7rem;
+              border-radius: 7px;
+              border: none;
+              margin-top: 2px;
+            "
+        /></label>
+        <label style="color: #ffbd39; font-weight: 600"
+          >Number*<br /><input
+            name="Number"
+            required
+            pattern="[0-9]{10,}"
+            title="Please enter a valid number"
+            style="
+              width: 100%;
+              padding: 0.4rem 0.7rem;
+              border-radius: 7px;
+              border: none;
+              margin-top: 2px;
+            "
+        /></label>
+        <label style="color: #ffbd39; font-weight: 600"
+          >Email<br /><input
+            name="Email"
+            type="email"
+            style="
+              width: 100%;
+              padding: 0.4rem 0.7rem;
+              border-radius: 7px;
+              border: none;
+              margin-top: 2px;
+            "
+        /></label>
+        <button
+          type="submit"
+          style="
+            margin-top: 0.7rem;
+            background: linear-gradient(45deg, #ffbd39, #ff6b35);
+            color: #181818;
+            font-weight: 700;
+            padding: 0.5rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+          "
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <div
+      id="prachar-thankyou"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 10001;
+        bottom: 100px;
+        left: 30px;
+        background: #222;
+        padding: 1.3rem 1.2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        min-width: 220px;
+        max-width: 95vw;
+        width: 300px;
+        text-align: center;
+        color: #ffbd39;
+        font-weight: 600;
+        font-size: 1.1rem;
+      "
+    >
+      <div style="font-size: 2rem">🙏</div>
+      <div>Thank you for your info!<br />Your support is appreciated.</div>
+      <div
+        id="prachar-info"
+        style="color: #fff; font-size: 0.95rem; margin-top: 0.7rem"
+      ></div>
+      <button
+        onclick="closePracharThankYou()"
+        style="
+          margin-top: 0.8rem;
+          background: linear-gradient(45deg, #ffbd39, #ff6b35);
+          color: #181818;
+          font-weight: 700;
+          padding: 0.4rem 1.1rem;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        "
+      >
+        Close
+      </button>
+    </div>
+    <style>
+      @keyframes pulseBadge {
+        0% {
+          box-shadow: 0 4px 16px rgba(255, 189, 57, 0.18);
+        }
+        100% {
+          box-shadow: 0 8px 32px rgba(255, 189, 57, 0.35);
+        }
+      }
+      #prachar-badge.prachar-circle {
+        min-width: 56px !important;
+        max-width: 56px !important;
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        justify-content: center !important;
+        gap: 0 !important;
+      }
+      #prachar-badge.prachar-circle .prachar-text {
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        transition: all 0.4s;
+      }
+      #prachar-badge.prachar-circle .prachar-icon {
+        font-size: 1.6rem;
+        margin: 0;
+      }
+      #prachar-badge.prachar-rect {
+        min-width: 220px !important;
+        max-width: 90vw !important;
+        width: auto !important;
+        height: auto !important;
+        border-radius: 14px !important;
+        padding: 0.9rem 1.3rem !important;
+        justify-content: flex-start !important;
+        gap: 0.7rem !important;
+      }
+      #prachar-badge.prachar-rect .prachar-text {
+        opacity: 1;
+        width: auto;
+        transition: all 0.4s;
+      }
+      #prachar-badge.prachar-rect .prachar-icon {
+        font-size: 1.3rem;
+      }
+    </style>
+
+    <div class="donation-header">
+      <div class="header-content">
+        <h1 class="donation-title">Help the Needy</h1>
+        <p class="donation-subtitle">
+          Together we can make a difference in the lives of those who need it
+          most. Your contribution, no matter how small, can bring hope and
+          change lives.
+        </p>
+        <div class="donation-stats">
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Transparency</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Direct</span>
+            <span class="stat-label">Help</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">Trusted</span>
+            <span class="stat-label">Initiative</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="donation-container">
+      <div class="mission-section">
+        <h2 class="mission-title">Our Mission</h2>
+        <div class="mission-content">
+          <p class="mission-text">
+            We believe that everyone deserves access to basic necessities and
+            opportunities for a better life. Through this initiative, we aim to
+            provide direct assistance to those in need, ensuring that your
+            donations reach the intended beneficiaries without any
+            intermediaries.
+          </p>
+          <div class="mission-highlights">
+            <div class="mission-card">
+              <div class="mission-icon">🎯</div>
+              <h3>Direct Impact</h3>
+              <p>
+                Your donations go directly to those in need, ensuring maximum
+                impact and transparency in how funds are utilized.
+              </p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-icon">🤝</div>
+              <h3>Community Support</h3>
+              <p>
+                Building a stronger community by helping those who are
+                struggling and creating opportunities for growth.
+              </p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-icon">💝</div>
+              <h3>Empowering Lives</h3>
+              <p>
+                Providing not just financial assistance, but also hope and
+                motivation for a better future.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qr-section">
+        <h2 class="qr-title">Quick Donation via QR Code / UPI</h2>
+        <div class="qr-content">
+          <div class="qr-code-container">
+            <img
+              src="images/donation-qr.jpg.jpeg"
+              alt="Paytm UPI QR Code"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 10px;
+                display: block;
+                margin: 0 auto 1rem;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+                background: #fff;
+              "
+              onerror="this.style.display='none';document.getElementById('qr-fallback').style.display='block';"
+            />
+            <div
+              id="qr-fallback"
+              style="display: none; color: #ffbd39; font-weight: 600"
+            >
+              [QR code image will appear here once uploaded]
+            </div>
+            <p style="color: #ccc; font-size: 0.9rem">
+              Scan to donate instantly
+            </p>
+          </div>
+          <div class="qr-instructions">
+            <h3>How to Donate via QR or UPI:</h3>
+            <div class="qr-steps">
+              <ol>
+                <li>
+                  Open your UPI payment app (Google Pay, PhonePe, Paytm, etc.)
+                </li>
+                <li>
+                  Tap on "Scan QR Code" option and scan the code OR use the UPI
+                  ID below
+                </li>
+                <li>
+                  UPI ID:
+                  <span style="color: #ffbd39; font-weight: 700"
+                    >9889090837@pthdfc</span
+                  >
+                  <button
+                    class="copy-btn"
+                    onclick="copyToClipboard('9889090837@pthdfc')"
+                  >
+                    Copy
+                  </button>
+                </li>
+                <li>Enter the amount you wish to donate</li>
+                <li>Complete the payment securely</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bank-section">
+        <h2 class="bank-title">Bank Transfer Details</h2>
+        <div class="bank-details">
+          <div class="bank-row">
+            <span class="bank-label">Account Holder Name:</span>
+            <span class="bank-value">Jatin Mishra</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">Account Number:</span>
+            <span class="bank-value">41096829236</span>
+            <button class="copy-btn" onclick="copyToClipboard('41096829236')">
+              Copy
+            </button>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">IFSC Code:</span>
+            <span class="bank-value">SBIN0016994</span>
+            <button class="copy-btn" onclick="copyToClipboard('SBIN0016994')">
+              Copy
+            </button>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">Bank Name:</span>
+            <span class="bank-value">State Bank of India</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">Branch:</span>
+            <span class="bank-value">SBI Branch</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-section">
+        <h2 class="impact-title">Your Donation Makes a Difference</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-icon">🏥</div>
+            <h3>Medical Assistance</h3>
+            <p>
+              Help provide medical care and medicines to those who cannot afford
+              basic healthcare services.
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-icon">📚</div>
+            <h3>Education Support</h3>
+            <p>
+              Support children's education by providing books, uniforms, and
+              school supplies to underprivileged students.
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-icon">🍽️</div>
+            <h3>Food & Nutrition</h3>
+            <p>
+              Provide nutritious meals and food supplies to families struggling
+              with hunger and malnutrition.
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-icon">🏠</div>
+            <h3>Basic Necessities</h3>
+            <p>
+              Help provide clothing, shelter, and other essential items to
+              improve living conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-section" style="margin-bottom: 3rem">
+        <h2 class="impact-title">Recent Donors</h2>
+        <div
+          class="impact-grid"
+          style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))"
+        >
+          <div class="impact-card">
+            <div class="impact-icon">🙏</div>
+            <h3>Kanhaiya Mishra</h3>
+            <p>
+              Donated:
+              <span style="color: #ffbd39; font-weight: 700">₹200</span>
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-icon">🙏</div>
+            <h3>Rahul Kumar</h3>
+            <p>
+              Donated:
+              <span style="color: #ffbd39; font-weight: 700">₹100</span>
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-icon">🙏</div>
+            <h3>Abhishek Shukla</h3>
+            <p>
+              Donated:
+              <span style="color: #ffbd39; font-weight: 700">₹500</span>
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-icon">🙏</div>
+            <h3>Hemlata Shukla</h3>
+            <p>
+              Donated:
+              <span style="color: #ffbd39; font-weight: 700">₹300</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-section">
+        <h2 class="help-title">How You Can Help</h2>
+        <div class="help-content">
+          <p class="help-text">
+            There are many ways you can contribute to this noble cause. Every
+            donation, no matter the amount, makes a significant impact in
+            someone's life.
+          </p>
+          <div class="help-methods">
+            <div class="help-method">
+              <h3>💰 Financial Donations</h3>
+              <p>Your monetary contributions help us provide:</p>
+              <ul>
+                <li>Medical assistance and medicines</li>
+                <li>Educational support and supplies</li>
+                <li>Food and nutrition programs</li>
+                <li>Emergency relief assistance</li>
+              </ul>
+            </div>
+            <div class="help-method">
+              <h3>🤝 Spread Awareness</h3>
+              <p>Help us reach more people by:</p>
+              <ul>
+                <li>Sharing this page with friends and family</li>
+                <li>Posting on social media platforms</li>
+                <li>Encouraging others to contribute</li>
+                <li>Volunteering your time and skills</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="thank-section">
+        <div class="thank-content">
+          <h2 class="thank-title">Thank You for Your Generosity</h2>
+          <p class="thank-text">
+            Your kindness and generosity have the power to transform lives.
+            Every donation, no matter how small, brings hope and makes a real
+            difference in someone's life.
+          </p>
+          <p class="thank-quote">
+            "The best way to find yourself is to lose yourself in the service of
+            others." - Mahatma Gandhi
+          </p>
+          <p class="thank-text">
+            We are deeply grateful for your support and commitment to helping
+            those in need. Together, we can create a better world for everyone.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h2 class="contact-title">Get in Touch</h2>
+        <p class="contact-info">
+          If you have any questions about donations or would like to know more
+          about how your contributions are being used, please don't hesitate to
+          contact us.
+        </p>
+        <p class="contact-info">
+          Email:
+          <a href="mailto:jatinmishra2094011@gmail.com" class="contact-email"
+            >jatinmishra2094011@gmail.com</a
+          >
+        </p>
+        <p class="contact-info">
+          We will provide regular updates on how your donations are making a
+          difference in people's lives.
+        </p>
+      </div>
+    </div>
+
+    <footer id="main-footer">
+      <div class="footer-main-grid">
+        <div class="footer-col-left">
+          <div class="brand-logo-group">
+            <div class="brand-logo-img-wrapper">
+              <img
+                src="images/jatinmishra.jpg (2).jpg"
+                alt="Jatin Mishra"
+                class="brand-logo-img"
+              />
+              <div class="brand-logo-initials">JM</div>
+            </div>
+            <div class="brand-logo-text">
+              <h3>Jatin Mishra</h3>
+              <p>Full Stack Developer</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            Passionate developer creating innovative web solutions. Specializing
+            in modern technologies and user-centric design.
+          </p>
+          <div class="footer-social-links">
+            <a
+              href="https://www.instagram.com/jatinmishra8?igsh=NWhiNHJ0NGp0bTgw"
+              target="_blank"
+              title="Instagram"
+              >IG</a
+            >
+            <a
+              href="https://www.facebook.com/share/1Eh3G4v5Ro/"
+              target="_blank"
+              title="Facebook"
+              >FB</a
+            >
+            <a
+              href="https://wa.me/919889090837"
+              target="_blank"
+              title="WhatsApp"
+              >WA</a
+            >
+            <a
+              href="https://www.linkedin.com/in/jatin-mshra-659a16260"
+              target="_blank"
+              title="LinkedIn"
+              >IN</a
+            >
+            <a
+              href="https://github.com/jatinmishra123"
+              target="_blank"
+              title="GitHub"
+              >GH</a
+            >
+            <a href="mailto:jatinmishra2094011@gmail.com" title="Email">@</a>
+          </div>
+        </div>
+
+        <div class="footer-col-center">
+          <h3>Quick Links</h3>
+          <div class="footer-quick-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="about.html">👨‍💻 About Me</a>
+            <a href="experience.html">💼 Experience</a>
+            <a href="projects.html">🚀 Projects</a>
+            <a href="contact.html">📞 Contact</a>
+            <a href="donation.html">❤️ Support</a>
+          </div>
+          <div class="footer-resume-btn-wrapper">
+            <a
+              href="Jatinmishra_resume.pdf"
+              target="_blank"
+              class="footer-resume-btn"
+              >📄 Download Resume</a
+            >
+          </div>
+        </div>
+
+        <div class="footer-col-right">
+          <h3>Technical Skills</h3>
+          <div class="footer-skills-list">
+            <p>🐘 PHP & Laravel</p>
+            <p>🛒 Magento</p>
+            <p>⚛️ React.js</p>
+            <p>🎨 HTML/CSS/JS</p>
+            <p>🗄️ MySQL & SQL</p>
+          </div>
+          <div class="footer-contact-info">
+            <p>📧 jatinmishra2094011@gmail.com</p>
+            <p>📞 +91 9889090837</p>
+            <p>📍 Delhi, India</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-section">
+        <div class="footer-bottom-bar">
+          <div class="footer-copyright">
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Jatin Mishra. All rights reserved.
+          </div>
+          <div class="footer-built-with">
+            <span>🚀</span>
+            <span>Built with ❤️ & ☕</span>
+            <span>💻</span>
+          </div>
+          <div class="footer-version"><span>Version</span> 2.0.1</div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // --- New Nav Toggle Script ---
+      const navToggle = document.getElementById("nav-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      }
+      // --- End Nav Toggle Script ---
+
+      // Copy to clipboard functionality
+      function copyToClipboard(text) {
+        navigator.clipboard
+          .writeText(text)
+          .then(function () {
+            // Show success message
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = "Copied!";
+            button.style.background = "linear-gradient(45deg,#28a745,#20c997)";
+
+            setTimeout(function () {
+              button.textContent = originalText;
+              button.style.background =
+                "linear-gradient(45deg,#ffbd39,#ff6b35)";
+            }, 2000);
+          })
+          .catch(function (err) {
+            console.error("Could not copy text: ", err);
+            alert("Could not copy text. Please copy manually: " + text);
+          });
+      }
+
+      // Add smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Show thank you toast on page load
+      window.onload = function () {
+        var toast = document.getElementById("thankyou-toast");
+        toast.style.display = "block";
+        setTimeout(function () {
+          toast.style.opacity = "1";
+          toast.style.transform = "translateY(0)";
+        }, 100);
+        // Hide toast after 3s, then show badge as circle
+        setTimeout(function () {
+          toast.style.opacity = "0";
+          toast.style.transform = "translateY(40px)";
+          setTimeout(function () {
+            toast.style.display = "none";
+            // Show badge as circle
+            var badge = document.getElementById("prachar-badge");
+            badge.style.display = "flex";
+            badge.classList.remove("prachar-rect");
+            badge.classList.add("prachar-circle");
+          }, 400);
+        }, 3000);
+      };
+      function closeThankYouToast() {
+        var toast = document.getElementById("thankyou-toast");
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(40px)";
+        setTimeout(function () {
+          toast.style.display = "none";
+          // Show badge as circle
+          var badge = document.getElementById("prachar-badge");
+          badge.style.display = "flex";
+          badge.classList.remove("prachar-rect");
+          badge.classList.add("prachar-circle");
+        }, 400);
+      }
+
+      // Prachar badge interactive logic
+      let pracharState = "rect";
+      function togglePracharBadge() {
+        const badge = document.getElementById("prachar-badge");
+        if (pracharState === "rect") {
+          badge.classList.remove("prachar-rect");
+          badge.classList.add("prachar-circle");
+          pracharState = "circle";
+        } else {
+          badge.classList.remove("prachar-circle");
+          badge.classList.add("prachar-rect");
+          pracharState = "rect";
+        }
+      }
+      function hoverPracharBadge() {
+        const badge = document.getElementById("prachar-badge");
+        badge.classList.remove("prachar-rect");
+        badge.classList.add("prachar-circle");
+        pracharState = "circle";
+      }
+      function resetPracharBadge() {
+        const badge = document.getElementById("prachar-badge");
+        badge.classList.remove("prachar-circle");
+        badge.classList.add("prachar-rect");
+        pracharState = "rect";
+      }
+
+      // Prachar badge form/modal logic
+      function openPracharForm() {
+        document.getElementById("prachar-badge").style.display = "none";
+        document.getElementById("prachar-form-modal").style.display = "block";
+      }
+      function closePracharForm() {
+        document.getElementById("prachar-form-modal").style.display = "none";
+        document.getElementById("prachar-badge").style.display = "flex";
+      }
+      document.getElementById("prachar-form").onsubmit = function (e) {
+        e.preventDefault();
+        // Check if running as file://
+        if (window.location.protocol === "file:") {
+          alert(
+            "Unable to submit form. Make sure you open this page through a web server. FormSubmit will not work in pages browsed as HTML files."
+          );
+          return false;
+        }
+        // Collect info
+        const name = this.elements["Name"].value;
+        const address = this.elements["Address"].value;
+        const number = this.elements["Number"].value;
+        const email = this.elements["Email"].value;
+        // Show thank you popup
+        document.getElementById("prachar-form-modal").style.display = "none";
+        document.getElementById("prachar-thankyou").style.display = "block";
+        document.getElementById("prachar-info").innerHTML =
+          `<b>Name:</b> ${name}<br><b>Address:</b> ${address}<br><b>Number:</b> ${number}` +
+          (email ? `<br><b>Email:</b> ${email}` : "");
+        // Actually submit the form to FormSubmit
+        setTimeout(() => {
+          this.submit();
+        }, 1000);
+        // Hide thank you after 5s
+        setTimeout(closePracharThankYou, 5000);
+      };
+      function closePracharThankYou() {
+        document.getElementById("prachar-thankyou").style.display = "none";
+        document.getElementById("prachar-badge").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
