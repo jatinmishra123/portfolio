@@ -951,10 +951,10 @@
           applications that solve real-world problems.
         </p>
         <div class="about-stats">
-          <div class="stat-item">
-            <span class="stat-number">2.3</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
+         <div class="stat-item">
+    <span class="stat-number" id="experience"></span>
+    <span class="stat-label">Years Experience</span>
+</div>
           <div class="stat-item">
             <span class="stat-number">100%</span>
             <span class="stat-label">Client Satisfaction</span>
@@ -1440,5 +1440,20 @@
         });
       }
     </script>
+    <script>
+window.onload = function () {
+    const joiningDate = new Date("2024-01-01"); // <-- apni actual career start date
+
+    const today = new Date();
+
+    const totalMonths =
+        (today.getFullYear() - joiningDate.getFullYear()) * 12 +
+        (today.getMonth() - joiningDate.getMonth());
+
+    const experience = (totalMonths / 12).toFixed(1);
+
+    document.getElementById("experience").textContent = experience;
+};
+</script>
   </body>
 </html>
