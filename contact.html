@@ -722,31 +722,41 @@
           </p>
         </div>
       </div>
-    <form
-    class="contact-form"
-    action="https://formsubmit.co/jatinmishra2094011@gmail.com"
-    method="POST">
-      <input type="hidden" name="_subject" value="New Portfolio Contact">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://dainty-jelly-a69643.netlify.app/thank-you.html">
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Contact Form Submission - Jatin Mishra Portfolio"
-        />
-        <input type="hidden" name="_next" value="thank-you.html" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Your Message"
-          required
-        ></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+   <form id="contactForm" class="contact-form">
+
+    <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+    />
+
+    <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        required
+    />
+
+    <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+        required
+    />
+
+    <textarea
+        name="message"
+        rows="5"
+        placeholder="Your Message"
+        required
+    ></textarea>
+
+    <button type="submit" id="submitBtn">
+        Send Message
+    </button>
+
+</form>
       <div class="contact-info">
         <h3>Contact Information</h3>
         <p>
@@ -1110,5 +1120,49 @@
         }
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init("bfRizUG0dqWIPuWKn");
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const btn = document.getElementById("submitBtn");
+
+    btn.innerHTML = "Sending...";
+    btn.disabled = true;
+
+    emailjs.sendForm(
+        "service_n10oecn",
+        "template_4wpl14d",
+        this
+    )
+    .then(function(){
+
+        alert("✅ Your message has been sent successfully.");
+
+        form.reset();
+
+        btn.innerHTML = "Send Message";
+        btn.disabled = false;
+
+    })
+    .catch(function(error){
+
+        alert("❌ Failed to send message.\n\n" + error.text);
+
+        btn.innerHTML = "Send Message";
+        btn.disabled = false;
+
+        console.log(error);
+
+    });
+
+});
+</script>
   </body>
 </html>
