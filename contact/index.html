@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Jatin Mishra Portfolio</title>
+
+    <meta name="description" content="Get in touch with Jatin Mishra, Full Stack Developer, for web development projects, collaborations, or job opportunities." />
+    <meta name="author" content="Jatin Mishra" />
+    <link rel="canonical" href="https://jatinmishra123.github.io/portfolio/contact/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jatin Mishra Portfolio" />
+    <meta property="og:url" content="https://jatinmishra123.github.io/portfolio/contact/" />
+    <meta property="og:title" content="Contact - Jatin Mishra Portfolio" />
+    <meta property="og:description" content="Get in touch with Jatin Mishra, Full Stack Developer, for web development projects, collaborations, or job opportunities." />
+    <meta property="og:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Contact - Jatin Mishra Portfolio" />
+    <meta name="twitter:description" content="Get in touch with Jatin Mishra, Full Stack Developer, for web development projects, collaborations, or job opportunities." />
+    <meta name="twitter:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
         <link rel="icon" type="image/jpeg" href="../images/jatinmishra.jpg">
 
     <link
@@ -67,14 +85,22 @@
         align-items: center;
         gap: 0.8rem;
       }
-      .nav-profile-img {
-        width: 44px;
-        height: 44px;
+      .nav-profile-wrap {
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
-        object-fit: cover;
+        overflow: hidden;
         border: 2.5px solid #ffbd39;
         box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
         background: #fff;
+        flex-shrink: 0;
+        display: block;
+      }
+      .nav-profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
       .navbar .brand {
         font-size: 1.6rem;
@@ -577,9 +603,9 @@
           padding: 0.7rem 1rem;
           max-width: 100vw;
         }
-        .nav-profile-img {
-          width: 38px;
-          height: 38px;
+        .nav-profile-wrap {
+          width: 46px;
+          height: 46px;
         }
         .navbar .brand {
           font-size: 1.2rem;
@@ -688,11 +714,7 @@
   <body>
     <nav class="navbar">
       <div class="nav-brand">
-        <img
-          src="../images/jatinmishra.jpg"
-          alt="Jatin Mishra"
-          class="nav-profile-img"
-        />
+        <span class="nav-profile-wrap"><img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
         <span class="brand">Jatin Mishra</span>
       </div>
 

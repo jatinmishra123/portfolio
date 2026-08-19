@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jatinmishra123.github.io/portfolio/sitemap.xml

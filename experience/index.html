@@ -4,6 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experience - Jatin Mishra Portfolio</title>
+
+    <meta name="description" content="Jatin Mishra's professional journey — Software Engineer experience in Laravel, PHP, React.js, and enterprise web application development." />
+    <meta name="author" content="Jatin Mishra" />
+    <link rel="canonical" href="https://jatinmishra123.github.io/portfolio/experience/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jatin Mishra Portfolio" />
+    <meta property="og:url" content="https://jatinmishra123.github.io/portfolio/experience/" />
+    <meta property="og:title" content="Experience - Jatin Mishra Portfolio" />
+    <meta property="og:description" content="Jatin Mishra's professional journey — Software Engineer experience in Laravel, PHP, React.js, and enterprise web application development." />
+    <meta property="og:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Experience - Jatin Mishra Portfolio" />
+    <meta name="twitter:description" content="Jatin Mishra's professional journey — Software Engineer experience in Laravel, PHP, React.js, and enterprise web application development." />
+    <meta name="twitter:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
       <link rel="icon" type="image/jpeg" href="../images/jatinmishra.jpg">
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
@@ -24,7 +42,8 @@
     .navbar a { color:#fff; text-decoration:none; margin:0 1rem; font-weight:600; transition:.2s; }
     .navbar a:hover { color: var(--primary); }
     .nav-brand { display:flex; align-items:center; gap:0.8rem; }
-    .nav-profile-img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid var(--primary); }
+    .nav-profile-wrap { width:52px; height:52px; border-radius:50%; overflow:hidden; border:2px solid var(--primary); flex-shrink:0; display:block; }
+    .nav-profile-img { width:100%; height:100%; object-fit:cover; display:block; }
     .navbar .brand { font-size:1.5rem; color: var(--primary); font-weight:700; }
 
     /* --- Nav Toggle (hamburger) --- */
@@ -78,6 +97,32 @@
     /* Skill Pills */
     .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
     .pill { background: rgba(255, 189, 57, 0.1); color: var(--primary); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(255, 189, 57, 0.3); }
+
+    /* --- Impact Stats --- */
+    .exp-stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2.5rem; padding: 2rem; background: var(--card-bg); border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); border: 1px solid #333; }
+    .exp-stat-item { text-align: center; }
+    .exp-stat-number { color: var(--primary); font-size: 2.2rem; font-weight: 700; display: block; }
+    .exp-stat-label { color: #ccc; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
+
+    /* --- Education --- */
+    .exp-edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .exp-edu-card { background: rgba(255, 189, 57, 0.05); border: 1px solid #333; border-left: 3px solid var(--primary); border-radius: 10px; padding: 1.2rem; transition: 0.2s; }
+    .exp-edu-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .exp-edu-card h5 { color: var(--primary); margin: 0 0 0.3rem; font-size: 1rem; }
+    .exp-edu-card .exp-edu-inst { color: #fff; font-weight: 600; font-size: 0.9rem; }
+    .exp-edu-card .exp-edu-year { color: var(--secondary); font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+    .exp-edu-card p { color: #ccc; font-size: 0.85rem; margin: 0; line-height: 1.5; }
+
+    /* --- Key Projects --- */
+    .exp-projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .exp-project-card { background: rgba(255, 189, 57, 0.05); border: 1px solid #333; border-radius: 10px; padding: 1.2rem; transition: 0.2s; }
+    .exp-project-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .exp-project-card h5 { color: var(--primary); margin: 0 0 0.5rem; font-size: 1rem; }
+    .exp-project-card p { color: #ccc; font-size: 0.85rem; margin: 0 0 0.8rem; line-height: 1.5; }
+    .exp-project-link { color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+    .exp-project-link:hover { text-decoration: underline; }
+    .exp-view-all { display: inline-block; margin-top: 1.2rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: #181818; text-decoration: none; padding: 0.6rem 1.4rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem; transition: 0.2s; }
+    .exp-view-all:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 189, 57, 0.3); }
 
     /* --- Original Sections Styles --- */
     .achievements { background: var(--card-bg); border-radius: 15px; padding: 1.5rem; margin-top: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.12); border: 1px solid #333; }
@@ -182,7 +227,7 @@
 
   <nav class="navbar">
     <div class="nav-brand">
-      <img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img">
+      <span class="nav-profile-wrap"><img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
       <span class="brand">Jatin Mishra</span>
     </div>
 
@@ -252,7 +297,26 @@
         </div>
       </div>
     </div>
-    
+
+    <div class="exp-stats">
+      <div class="exp-stat-item">
+        <span class="exp-stat-number">15+</span>
+        <span class="exp-stat-label">Projects Completed</span>
+      </div>
+      <div class="exp-stat-item">
+        <span class="exp-stat-number">2.6</span>
+        <span class="exp-stat-label">Years Experience</span>
+      </div>
+      <div class="exp-stat-item">
+        <span class="exp-stat-number">3</span>
+        <span class="exp-stat-label">Companies</span>
+      </div>
+      <div class="exp-stat-item">
+        <span class="exp-stat-number">100%</span>
+        <span class="exp-stat-label">Client Satisfaction</span>
+      </div>
+    </div>
+
     <div class="achievements">
       <h4>Achievements</h4>
       <ul>
@@ -270,6 +334,52 @@
         <li><b>Tools:</b> Git, VS Code, Postman, Figma</li>
         <li><b>Other:</b> REST APIs, Payment Gateways, Responsive Design, Agile</li>
       </ul>
+    </div>
+
+    <div class="achievements" style="margin-top:2.5rem;">
+      <h4>Education</h4>
+      <div class="exp-edu-grid">
+        <div class="exp-edu-card">
+          <h5>Master of Computer Application</h5>
+          <span class="exp-edu-inst">PSIT Kanpur Nagar</span>
+          <span class="exp-edu-year">2022 - 2024</span>
+          <p>Specialized in software development, database management, and advanced programming concepts.</p>
+        </div>
+        <div class="exp-edu-card">
+          <h5>Bachelor of Science</h5>
+          <span class="exp-edu-inst">CSJM University Kanpur Nagar</span>
+          <span class="exp-edu-year">2018 - 2021</span>
+          <p>Built a strong foundation in computer science fundamentals and programming principles.</p>
+        </div>
+        <div class="exp-edu-card">
+          <h5>PHP Full Stack Course</h5>
+          <span class="exp-edu-inst">Ducat IT Training Center</span>
+          <span class="exp-edu-year">2024</span>
+          <p>Comprehensive training in modern PHP development, frameworks, and full-stack practices.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="achievements" style="margin-top:2.5rem;">
+      <h4>Key Projects Delivered</h4>
+      <div class="exp-projects-grid">
+        <div class="exp-project-card">
+          <h5>DDA AWAAS – Delhi Development Authority</h5>
+          <p>End-to-end housing management portal — registration, flat allotment, payments, and role-based approval workflow.</p>
+          <a href="https://eservices.dda.org.in/user" target="_blank" class="exp-project-link">View Live Portal →</a>
+        </div>
+        <div class="exp-project-card">
+          <h5>Ecommerce Website – Iconfurniture</h5>
+          <p>PHP-based furniture e-commerce platform with category management, order processing, and admin dashboard.</p>
+          <a href="https://iconfurniture.in/" target="_blank" class="exp-project-link">View Live Site →</a>
+        </div>
+        <div class="exp-project-card">
+          <h5>GlazTech Company Website</h5>
+          <p>Responsive business website with custom admin panel, service showcase, and lead generation.</p>
+          <a href="https://www.glaz-tech.com/" target="_blank" class="exp-project-link">View Live Site →</a>
+        </div>
+      </div>
+      <a href="../projects/" class="exp-view-all">🚀 View All Projects</a>
     </div>
 
     <div class="resume-section">

@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Jatin Mishra Portfolio</title>
+
+    <meta name="description" content="Jatin Mishra — Full Stack Developer specializing in PHP, Laravel, React.js & MySQL. Explore my projects, experience, and get in touch for web development opportunities." />
+    <meta name="author" content="Jatin Mishra" />
+    <link rel="canonical" href="https://jatinmishra123.github.io/portfolio/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jatin Mishra Portfolio" />
+    <meta property="og:url" content="https://jatinmishra123.github.io/portfolio/" />
+    <meta property="og:title" content="Home - Jatin Mishra Portfolio" />
+    <meta property="og:description" content="Jatin Mishra — Full Stack Developer specializing in PHP, Laravel, React.js & MySQL. Explore my projects, experience, and get in touch for web development opportunities." />
+    <meta property="og:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Home - Jatin Mishra Portfolio" />
+    <meta name="twitter:description" content="Jatin Mishra — Full Stack Developer specializing in PHP, Laravel, React.js & MySQL. Explore my projects, experience, and get in touch for web development opportunities." />
+    <meta name="twitter:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
     <link rel="icon" type="image/jpeg" href="images/jatinmishra.jpg">
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
@@ -67,14 +85,22 @@
         align-items: center;
         gap: 0.8rem;
       }
-      .nav-profile-img {
-        width: 44px;
-        height: 44px;
+      .nav-profile-wrap {
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
-        object-fit: cover;
+        overflow: hidden;
         border: 2.5px solid #ffbd39;
         box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
         background: #fff;
+        flex-shrink: 0;
+        display: block;
+      }
+      .nav-profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
       .navbar .brand {
         font-size: 1.6rem;
@@ -716,9 +742,9 @@
           padding: 0.7rem 1rem;
           max-width: 100vw;
         }
-        .nav-profile-img {
-          width: 38px;
-          height: 38px;
+        .nav-profile-wrap {
+          width: 46px;
+          height: 46px;
         }
         .navbar .brand {
           font-size: 1.2rem;
@@ -879,11 +905,7 @@
   <body>
     <nav class="navbar">
       <div class="nav-brand">
-        <img
-          src="images/jatinmishra.jpg"
-          alt="Jatin Mishra"
-          class="nav-profile-img"
-        />
+        <span class="nav-profile-wrap"><img src="images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
         <span class="brand">Jatin Mishra</span>
       </div>
 
@@ -911,13 +933,13 @@
         <div class="hero-buttons">
           <button
             class="cta-btn primary"
-            onclick="window.location.href='projects.html'"
+            onclick="window.location.href='projects'"
           >
             View My Projects
           </button>
           <button
             class="cta-btn secondary"
-            onclick="window.location.href='about.html'"
+            onclick="window.location.href='about'"
           >
             About Me
           </button>
@@ -930,9 +952,10 @@
         <div class="intro-content">
           <h2>Welcome to My Portfolio</h2>
           <p>
-            I'm a Software Engineer with expertise in PHP, Laravel,
-            React.js, and modern web technologies. I love building scalable
-            applications and solving complex problems.
+            I'm a Software Engineer at <strong style="color:#ffbd39;">Akiko Sherman Infotech Pvt. Ltd.</strong>,
+            with expertise in PHP, Laravel, React.js, and modern web
+            technologies. I love building scalable applications and solving
+            complex problems.
           </p>
           <div class="highlights">
             <div class="highlight-item">
@@ -966,6 +989,10 @@
     <span class="stat-number" id="experience"></span>
     <span class="stat-label">Years Experience</span>
 </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
         </div>
       </div>
     </section>
@@ -977,7 +1004,7 @@
         <div class="cta-buttons">
           <button
             class="cta-btn primary"
-            onclick="window.location.href='contact.html'"
+            onclick="window.location.href='contact'"
           >
             Get In Touch
           </button>
@@ -1056,7 +1083,7 @@
             </div>
             <div class="testimonial-author">
               <strong>Team Lead</strong>
-              <span>VOLVRIT</span>
+              <span>Akiko Sheraman Infotech</span>
             </div>
           </div>
           <div class="testimonial-card">
@@ -1083,13 +1110,13 @@
           <div class="project-preview-card">
             <div
               class="project-preview-image"
-              style="background-image: url('images/icon.png')"
+              style="background-image: url('images/awas.png')"
             ></div>
             <div class="project-preview-content">
-              <h3>Iconfurniture E-commerce</h3>
+              <h3>DDA AWAAS – Delhi Development Authority</h3>
               <p>
-                Complete furniture store with admin panel and payment
-                integration
+                Government housing portal with registration, allotment, and
+                role-based approval workflows
               </p>
               <a href="projects/" class="project-link"
                 >View All Projects →</a

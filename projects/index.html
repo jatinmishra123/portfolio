@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects - Jatin Mishra Portfolio</title>
+
+    <meta name="description" content="Explore Jatin Mishra's portfolio of web development, e-commerce, and data science projects built with PHP, Laravel, React.js, Python, and SQL." />
+    <meta name="author" content="Jatin Mishra" />
+    <link rel="canonical" href="https://jatinmishra123.github.io/portfolio/projects/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jatin Mishra Portfolio" />
+    <meta property="og:url" content="https://jatinmishra123.github.io/portfolio/projects/" />
+    <meta property="og:title" content="Projects - Jatin Mishra Portfolio" />
+    <meta property="og:description" content="Explore Jatin Mishra's portfolio of web development, e-commerce, and data science projects built with PHP, Laravel, React.js, Python, and SQL." />
+    <meta property="og:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Projects - Jatin Mishra Portfolio" />
+    <meta name="twitter:description" content="Explore Jatin Mishra's portfolio of web development, e-commerce, and data science projects built with PHP, Laravel, React.js, Python, and SQL." />
+    <meta name="twitter:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
         <link rel="icon" type="image/jpeg" href="../images/jatinmishra.jpg">
 
     <link
@@ -67,14 +85,22 @@
         align-items: center;
         gap: 0.8rem;
       }
-      .nav-profile-img {
-        width: 44px;
-        height: 44px;
+      .nav-profile-wrap {
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
-        object-fit: cover;
+        overflow: hidden;
         border: 2.5px solid #ffbd39;
         box-shadow: 0 2px 8px rgba(255, 189, 57, 0.18);
         background: #fff;
+        flex-shrink: 0;
+        display: block;
+      }
+      .nav-profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
       .navbar .brand {
         font-size: 1.6rem;
@@ -225,6 +251,8 @@
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
+        display: flex;
+        flex-direction: column;
       }
       .project-card:hover {
         transform: translateY(-5px);
@@ -246,6 +274,13 @@
       }
       .project-content {
         padding: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .project-links {
+        margin-top: auto;
+        padding-top: 0.5rem;
       }
       .project-title {
         color: #ffbd39;
@@ -317,6 +352,27 @@
         background: #ffbd39;
         color: #181818;
       }
+      .project-badge {
+        background: #333;
+        color: #fff;
+        border: 1px solid #ffbd39;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
+        flex: 1;
+        text-align: center;
+        cursor: default;
+      }
+      .project-note {
+        color: #999;
+        font-size: 0.85rem;
+        font-style: italic;
+        margin: 0;
+        margin-top: auto;
+        padding-top: 0.5rem;
+      }
 
       /* Featured Project */
       .featured-project {
@@ -365,6 +421,97 @@
         to {
           transform: rotate(360deg);
         }
+      }
+
+      /* Testimonials Section */
+      .testimonials-section {
+        margin-top: 4rem;
+      }
+      .testimonials-section h2 {
+        color: #ffbd39;
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+      .testimonial-card {
+        background: #222;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        border: 1px solid #333;
+      }
+      .testimonial-content p {
+        color: #eee;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+      .testimonial-author strong {
+        color: #ffbd39;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .testimonial-author span {
+        color: #ccc;
+        font-size: 0.9rem;
+      }
+
+      /* CTA Section */
+      .projects-cta-section {
+        margin-top: 4rem;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #333;
+      }
+      .projects-cta-section h2 {
+        color: #ffbd39;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+      .projects-cta-section p {
+        color: #eee;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .projects-cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .projects-cta-btn {
+        padding: 0.9rem 2rem;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.2s;
+        border: 2px solid transparent;
+      }
+      .projects-cta-btn.primary {
+        background: linear-gradient(45deg, #ffbd39, #ff6b35);
+        color: #181818;
+      }
+      .projects-cta-btn.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 189, 57, 0.3);
+      }
+      .projects-cta-btn.secondary {
+        background: transparent;
+        color: #ffbd39;
+        border-color: #ffbd39;
+      }
+      .projects-cta-btn.secondary:hover {
+        background: #ffbd39;
+        color: #181818;
       }
 
       /* GitHub Section */
@@ -657,9 +804,9 @@
           padding: 0.7rem 1rem;
           max-width: 100vw;
         }
-        .nav-profile-img {
-          width: 38px;
-          height: 38px;
+        .nav-profile-wrap {
+          width: 46px;
+          height: 46px;
         }
         .navbar .brand {
           font-size: 1.2rem;
@@ -785,11 +932,7 @@
   <body>
     <nav class="navbar">
       <div class="nav-brand">
-        <img
-          src="../images/jatinmishra.jpg"
-          alt="Jatin Mishra"
-          class="nav-profile-img"
-        />
+        <span class="nav-profile-wrap"><img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
         <span class="brand">Jatin Mishra</span>
       </div>
 
@@ -860,23 +1003,24 @@
       <div class="featured-project">
         <div class="featured-content">
           <h2 class="featured-title">
-            🌟 Featured Project: Iconfurniture E-commerce Platform
+            🌟 Featured Project: DDA AWAAS – Delhi Development Authority
           </h2>
           <p class="featured-description">
-            A comprehensive PHP-based furniture e-commerce platform with
-            advanced features including category management, order processing,
-            payment integration, and a powerful admin dashboard. This project
-            demonstrates full-stack development capabilities and business logic
-            implementation.
+            A large-scale government housing portal built with PHP Laravel for
+            the Delhi Development Authority (DDA), covering end-to-end housing
+            management — online registration, flat allotment, demand &
+            possession letters, multi-level refund approval, role-based admin
+            access, and IFMIS payment integration. This project demonstrates
+            enterprise-grade full-stack development and complex workflow
+            automation.
           </p>
           <div class="project-links">
             <a
-              href="https://iconfurniture.in/"
+              href="https://eservices.dda.org.in/user"
               target="_blank"
               class="project-link"
-              >Live Demo</a
+              >Live Portal</a
             >
-            <a href="#" class="project-link secondary">Case Study</a>
           </div>
         </div>
       </div>
@@ -974,9 +1118,9 @@
         Live Portal
       </a>
 
-      <a href="#" class="project-link secondary">
-        Government Project
-      </a>
+      <span class="project-badge">
+        🏛️ Government Project
+      </span>
     </div>
   </div>
 </div>
@@ -1016,7 +1160,6 @@
                 class="project-link"
                 >Live Demo</a
               >
-              <a href="#" class="project-link secondary">Details</a>
             </div>
           </div>
         </div>
@@ -1052,7 +1195,6 @@
                 class="project-link"
                 >Live Demo</a
               >
-              <a href="#" class="project-link secondary">Details</a>
             </div>
           </div>
         </div>
@@ -1092,7 +1234,6 @@
                 class="project-link"
                 >Live Demo</a
               >
-              <a href="#" class="project-link secondary">Details</a>
             </div>
           </div>
         </div>
@@ -1121,16 +1262,13 @@
               <span class="tech-tag">Data Analysis</span>
               <span class="tech-tag">TensorFlow</span>
             </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details</a>
-              <a href="#" class="project-link secondary">GitHub</a>
-            </div>
+            <p class="project-note">📌 Academic/self-learning project — code available on request</p>
           </div>
         </div>
 
         <div class="project-card" data-category="data">
           <img
-            src="../images/ai-technology-brain-background-digital-transformation-concept.jpg"
+            src="../images/proj_3.jpg"
             alt="SQL Sales Dashboard"
             class="project-image"
           />
@@ -1152,16 +1290,13 @@
               <span class="tech-tag">Analytics</span>
               <span class="tech-tag">DAX</span>
             </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details</a>
-              <a href="#" class="project-link secondary">Report</a>
-            </div>
+            <p class="project-note">📌 Academic/self-learning project — code available on request</p>
           </div>
         </div>
 
         <div class="project-card" data-category="data ml">
           <img
-            src="../images/close-up-man-shopping-with-laptop.jpg"
+            src="../images/proj_4.jpg"
             alt="Sales Forecast"
             class="project-image"
           />
@@ -1183,10 +1318,7 @@
               <span class="tech-tag">Time Series</span>
               <span class="tech-tag">Pandas</span>
             </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details</a>
-              <a href="#" class="project-link secondary">GitHub</a>
-            </div>
+            <p class="project-note">📌 Academic/self-learning project — code available on request</p>
           </div>
         </div>
 
@@ -1216,16 +1348,13 @@
               <span class="tech-tag">Marketing</span>
               <span class="tech-tag">Scikit-learn</span>
             </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details</a>
-              <a href="#" class="project-link secondary">GitHub</a>
-            </div>
+            <p class="project-note">📌 Academic/self-learning project — code available on request</p>
           </div>
         </div>
 
         <div class="project-card" data-category="web">
           <img
-            src="../images/proj_1.jpg"
+            src="../images/portfolio-preview.jpg"
             alt="Portfolio Website"
             class="project-image"
           />
@@ -1248,10 +1377,61 @@
               <span class="tech-tag">AOS</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">Live Demo</a>
-              <a href="#" class="project-link secondary">GitHub</a>
+              <a
+                href="https://jatinmishra123.github.io/portfolio/"
+                target="_blank"
+                class="project-link"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/jatinmishra123/portfolio"
+                target="_blank"
+                class="project-link secondary"
+                >GitHub</a
+              >
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="testimonials-section">
+        <h2>What Clients Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "Jatin is a dedicated developer who consistently delivers
+                high-quality solutions. His attention to detail and
+                problem-solving skills are exceptional."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <strong>Team Lead</strong>
+              <span>Akiko Sheraman Infotech</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                "Working with Jatin was a great experience. He understands
+                business requirements quickly and implements solutions
+                efficiently."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <strong>Project Manager</strong>
+              <span>MAKKPRESS Technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-cta-section">
+        <h2>Have a Project in Mind?</h2>
+        <p>Let's discuss your requirements and turn your idea into a working solution.</p>
+        <div class="projects-cta-buttons">
+          <a href="../contact/" class="projects-cta-btn primary">Get In Touch</a>
+          <a href="../Jatinmishra_resume.pdf" target="_blank" class="projects-cta-btn secondary">Download Resume</a>
         </div>
       </div>
 
