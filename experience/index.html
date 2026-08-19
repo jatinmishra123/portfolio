@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experience - Jatin Mishra Portfolio</title>
-      <link rel="icon" type="image/jpeg" href="images/jatinmishra.jpg">
+      <link rel="icon" type="image/jpeg" href="../images/jatinmishra.jpg">
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <style>
     /* --- Main Body & Variables --- */
     :root {
@@ -26,6 +26,11 @@
     .nav-brand { display:flex; align-items:center; gap:0.8rem; }
     .nav-profile-img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid var(--primary); }
     .navbar .brand { font-size:1.5rem; color: var(--primary); font-weight:700; }
+
+    /* --- Nav Toggle (hamburger) --- */
+    .nav-toggle { display:none; background:none; border:none; color: var(--primary); font-size:1.8rem; cursor:pointer; padding:0; line-height:1; }
+    .nav-links { display:flex; align-items:center; }
+    /* --- End Nav Toggle --- */
 
     /* --- Experience Header --- */
     .exp-container { max-width:900px; margin:2.5rem auto; padding:2rem 1rem; }
@@ -125,7 +130,7 @@
     .footer-bottom-text { color: #ccc; font-size: 0.8rem; }
     .footer-built-with { display: flex; gap: 0.8rem; align-items: center; font-weight: 500; }
     .footer-built-with span.emoji { color: #ffbd39; font-size: 1rem; }
-    .footer-mishra's span { color: #ffbd39; }
+    .footer-mishras span { color: #ffbd39; }
 
     /* --- Responsive Styles --- */
     @media (max-width: 768px) {
@@ -140,8 +145,36 @@
       .timeline { margin-left: 5px; }
       .exp-card { padding:1.2rem; }
       .exp-title { font-size:1.8rem; }
-      .navbar { flex-direction:column; padding:1rem; gap: 1rem; }
+      /* --- Navbar Toggle Logic --- */
+      .navbar { flex-direction:row; padding:0.7rem 1.5rem; border-radius: 0 0 12px 12px; }
       .nav-brand { margin-bottom:0; }
+      .nav-toggle { display:block; }
+      .nav-links {
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        right:0;
+        background:rgba(24,24,24,0.98);
+        width:100%;
+        flex-direction:column;
+        padding:1rem 0;
+        box-shadow:0 4px 24px rgba(0,0,0,0.18);
+        border-radius:0 0 18px 18px;
+        z-index:100;
+      }
+      .nav-links.show { display:flex; }
+      .navbar a { width:100%; text-align:center; margin:0.5rem 0; padding:0.8rem 1rem; }
+      /* --- End Navbar Toggle --- */
+
+      /* --- FOOTER BOTTOM BAR --- */
+      .footer { padding: 2rem 1.2rem 1.2rem; }
+      .footer-bottom-content {
+        flex-direction: column; /* Stack copyright, built-with, mishra's */
+        text-align: center;
+        gap: 0.8rem;
+      }
+      /* --- END FOOTER BOTTOM BAR --- */
     }
   </style>
 </head>
@@ -149,22 +182,28 @@
 
   <nav class="navbar">
     <div class="nav-brand">
-      <img src="images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img">
+      <img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img">
       <span class="brand">Jatin Mishra</span>
     </div>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="experience.html" style="color: var(--primary);">Experience</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="donation.html">Support</a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      &#9776;
+    </button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="../">Home</a>
+      <a href="../about/">About</a>
+      <a href="../experience/" style="color: var(--primary);">Experience</a>
+      <a href="../projects/">Projects</a>
+      <a href="../contact/">Contact</a>
+              <!-- <a href="../donation/">Support</a> -->
+
     </div>
   </nav>
 
   <div class="exp-container">
     <div class="exp-header">
-      <img src="images/jatinmishra.jpg" alt="Jatin Mishra" class="exp-profile-img">
+      <img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="exp-profile-img">
       <div class="exp-header-content">
         <div class="exp-title">Professional Journey</div>
         <p class="exp-subtitle">Full Stack Developer building robust web solutions</p>
@@ -241,7 +280,7 @@
           <h5>Jatin Mishra - Software Developer</h5>
           <p>PHP, Laravel, React.js, SQL, JavaScript</p>
         </div>
-        <a href="Jatinmishra_resume.pdf" target="_blank" class="resume-download-btn">📥 Download CV</a>
+        <a href="../Jatinmishra_resume.pdf" target="_blank" class="resume-download-btn">📥 Download CV</a>
       </div>
     </div>
   </div>
@@ -252,7 +291,7 @@
       <div class="footer-column left">
         <div class="footer-brand">
           <div class="footer-brand-img-wrapper">
-            <img src="images/jatinmishra.jpg" alt="Jatin Mishra" class="footer-brand-img">
+            <img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="footer-brand-img">
             <div class="footer-brand-initials">JM</div>
           </div>
           <div class="footer-brand-text">
@@ -276,15 +315,15 @@
       <div class="footer-column center">
         <h3>Quick Links</h3>
         <div class="footer-quick-links">
-          <a href="index.html">🏠 Home</a>
-          <a href="about.html">👨‍💻 About Me</a>
-          <a href="experience.html">💼 Experience</a>
-          <a href="projects.html">🚀 Projects</a>
-          <a href="contact.html">📞 Contact</a>
-          <a href="donation.html">❤️ Support</a>
+          <a href="../">🏠 Home</a>
+          <a href="../about/">👨‍💻 About Me</a>
+          <a href="../experience/">💼 Experience</a>
+          <a href="../projects/">🚀 Projects</a>
+          <a href="../contact/">📞 Contact</a>
+          <a href="../donation/">❤️ Support</a>
         </div>
         <div>
-          <a href="Jatinmishra_resume.pdf" target="_blank" class="footer-resume-btn">📄 Download Resume</a>
+          <a href="../Jatinmishra_resume.pdf" target="_blank" class="footer-resume-btn">📄 Download Resume</a>
         </div>
       </div>
       
@@ -316,11 +355,22 @@
           <span>Built with ❤️ & ☕</span>
           <span class="emoji">💻</span>
         </div>
-        <div class="footer-bottom-text footer-mishra's">
+        <div class="footer-bottom-text footer-mishras">
           <span>mishra's</span> 2.0.1
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    }
+  </script>
   </body>
 </html>
