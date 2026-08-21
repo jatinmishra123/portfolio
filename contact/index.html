@@ -902,7 +902,7 @@
         </div>
         <button
           class="popup-button"
-          onclick="window.location.href='tel:9889090837'"
+          onclick="window.location.href='tel:+919889090837'"
         >
           Call Now
         </button>
@@ -1063,7 +1063,7 @@
             <script>
               document.write(new Date().getFullYear());
             </script>
-            Jatin Mishra. .
+            Jatin Mishra.
           </div>
           <div class="footer-built-with">
             <span>🚀</span>
@@ -1089,17 +1089,14 @@
       // Popup Functions
       function showPhonePopup() {
         document.getElementById("phonePopup").style.display = "flex";
-        showThanksToast();
       }
 
       function showAddressPopup() {
         document.getElementById("addressPopup").style.display = "flex";
-        showThanksToast();
       }
 
       function showMapPopup() {
         document.getElementById("mapPopup").style.display = "flex";
-        showThanksToast();
       }
 
       function closePopup(popupId) {
@@ -1173,12 +1170,17 @@ form.addEventListener("submit", function(e){
 )
     .then(function(){
 
-        alert("✅ Your message has been sent successfully.");
+        // Send auto-reply "thanks" email to the visitor (best-effort, doesn't block redirect)
+        emailjs.sendForm(
+            "service_n1o0ecn",
+            "template_fndjn3a",
+            form
+        ).catch(function(err){
+            console.log("Auto-reply email failed:", err);
+        });
 
         form.reset();
-
-        btn.innerHTML = "Send Message";
-        btn.disabled = false;
+        window.location.href = "../thank-you/";
 
     })
     .catch(function(error){
