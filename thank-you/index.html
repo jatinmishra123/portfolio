@@ -88,6 +88,12 @@
     }
     .home-btn:hover { background:linear-gradient(45deg,#ff6b35,#ffbd39); color:#fff; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,189,57,0.3); }
 
+    .thank-you-actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      opacity: 0; animation: fade-up 0.5s ease 1.2s forwards;
+    }
+    .thank-you-actions .home-btn { opacity: 1; animation: none; }
+
     /* Confetti */
     .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 50; transition: opacity 0.8s ease; }
     .confetti-piece { position: absolute; top: -10px; will-change: transform, opacity; animation-name: confetti-fall; animation-timing-function: cubic-bezier(.25,.46,.45,.94); animation-fill-mode: forwards; }
@@ -171,7 +177,9 @@
       Thank you for reaching out! Your message has been received successfully —
       I'll get back to you within 24 hours.
     </div>
-    <a href="../" class="home-btn">Back to Home</a>
+    <div class="thank-you-actions">
+      <a href="../" class="home-btn">Back to Home</a>
+    </div>
   </div>
 
   <script>

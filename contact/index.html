@@ -170,7 +170,8 @@
         gap: 1.2rem;
       }
       .contact-form input,
-      .contact-form textarea {
+      .contact-form textarea,
+      .contact-form select {
         background: #181818;
         color: #fff;
         border: 2px solid #ffbd39;
@@ -181,9 +182,30 @@
         resize: none;
       }
       .contact-form input:focus,
-      .contact-form textarea:focus {
+      .contact-form textarea:focus,
+      .contact-form select:focus {
         outline: none;
         border-color: #ff6b35;
+      }
+      .phone-row {
+        display: flex;
+        gap: 0.6rem;
+      }
+      .phone-row select {
+        flex: 0 0 140px;
+        cursor: pointer;
+      }
+      .phone-row input {
+        flex: 1;
+        min-width: 0;
+      }
+      @media (max-width: 480px) {
+        .phone-row {
+          flex-direction: column;
+        }
+        .phone-row select {
+          flex: 1;
+        }
       }
       .contact-form button {
         background: linear-gradient(45deg, #ffbd39, #ff6b35);
@@ -762,12 +784,28 @@
         placeholder="Your Email"
         required
     />
-<input
-    type="tel"
-    name="phone"
-    placeholder="Your Mobile Number"
-    required
-/>
+<div class="phone-row">
+    <select name="countryCode" id="countryCode" required>
+        <option value="91" selected>🇮🇳 +91 (India)</option>
+        <option value="1">🇺🇸 +1 (USA/Canada)</option>
+        <option value="44">🇬🇧 +44 (UK)</option>
+        <option value="61">🇦🇺 +61 (Australia)</option>
+        <option value="971">🇦🇪 +971 (UAE)</option>
+        <option value="65">🇸🇬 +65 (Singapore)</option>
+        <option value="49">🇩🇪 +49 (Germany)</option>
+        <option value="33">🇫🇷 +33 (France)</option>
+        <option value="977">🇳🇵 +977 (Nepal)</option>
+        <option value="92">🇵🇰 +92 (Pakistan)</option>
+        <option value="880">🇧🇩 +880 (Bangladesh)</option>
+        <option value="94">🇱🇰 +94 (Sri Lanka)</option>
+    </select>
+    <input
+        type="tel"
+        name="phone"
+        placeholder="Mobile Number"
+        required
+    />
+</div>
     <input
         type="text"
         name="subject"
@@ -1159,6 +1197,13 @@ form.addEventListener("submit", function(e){
     e.preventDefault();
 
     const btn = document.getElementById("submitBtn");
+
+    // Combine country code + mobile number into one properly formatted value
+    // e.g. code="91", phone="9876543210" -> "919876543210"
+    const phoneInput = form.querySelector('[name="phone"]');
+    const codeSelect = document.getElementById("countryCode");
+    const rawDigits = phoneInput.value.replace(/\D/g, "");
+    phoneInput.value = codeSelect.value + rawDigits;
 
     btn.innerHTML = "Sending...";
     btn.disabled = true;
