@@ -47,8 +47,6 @@
         padding: 1.1rem 2.5rem;
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
         border-radius: 0 0 18px 18px;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
         margin: 0 auto 1.5rem auto;
         max-width: 1200px;
         transition: background 0.3s, box-shadow 0.3s;
@@ -100,6 +98,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        image-rendering: -webkit-optimize-contrast;
         display: block;
       }
       .navbar .brand {
@@ -944,7 +943,7 @@
   <body>
     <nav class="navbar">
       <div class="nav-brand">
-        <span class="nav-profile-wrap"><img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
+        <span class="nav-profile-wrap"><img src="../images/jatinmishra-nav.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
         <span class="brand">Jatin Mishra</span>
       </div>
 

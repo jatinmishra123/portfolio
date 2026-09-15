@@ -43,7 +43,7 @@
     .navbar a:hover { color: var(--primary); }
     .nav-brand { display:flex; align-items:center; gap:0.8rem; }
     .nav-profile-wrap { width:52px; height:52px; border-radius:50%; overflow:hidden; border:2px solid var(--primary); flex-shrink:0; display:block; }
-    .nav-profile-img { width:100%; height:100%; object-fit:cover; display:block; }
+    .nav-profile-img { width:100%; height:100%; object-fit:cover; image-rendering:-webkit-optimize-contrast; display:block; }
     .navbar .brand { font-size:1.5rem; color: var(--primary); font-weight:700; }
 
     /* --- Nav Toggle (hamburger) --- */
@@ -227,7 +227,7 @@
 
   <nav class="navbar">
     <div class="nav-brand">
-      <span class="nav-profile-wrap"><img src="../images/jatinmishra.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
+      <span class="nav-profile-wrap"><img src="../images/jatinmishra-nav.jpg" alt="Jatin Mishra" class="nav-profile-img" /></span>
       <span class="brand">Jatin Mishra</span>
     </div>
 
@@ -304,12 +304,8 @@
         <span class="exp-stat-label">Projects Completed</span>
       </div>
       <div class="exp-stat-item">
-        <span class="exp-stat-number">2.6</span>
+        <span class="exp-stat-number" id="expYears"></span>
         <span class="exp-stat-label">Years Experience</span>
-      </div>
-      <div class="exp-stat-item">
-        <span class="exp-stat-number">3</span>
-        <span class="exp-stat-label">Companies</span>
       </div>
       <div class="exp-stat-item">
         <span class="exp-stat-number">100%</span>
@@ -458,7 +454,7 @@
     <div class="footer-bottom">
       <div class="footer-bottom-content">
         <div class="footer-bottom-text">
-          © <script>document.write(new Date().getFullYear());</script> Jatin Mishra. .
+          © <script>document.write(new Date().getFullYear());</script> Jatin Mishra.
         </div>
         <div class="footer-bottom-text footer-built-with">
           <span class="emoji">🚀</span>
@@ -481,6 +477,21 @@
         navLinks.classList.toggle("show");
       });
     }
+  </script>
+  <script>
+    window.onload = function () {
+      const joiningDate = new Date("2024-01-01"); // <-- apni actual career start date
+
+      const today = new Date();
+
+      const totalMonths =
+        (today.getFullYear() - joiningDate.getFullYear()) * 12 +
+        (today.getMonth() - joiningDate.getMonth());
+
+      const years = (totalMonths / 12).toFixed(1);
+
+      document.getElementById("expYears").textContent = years;
+    };
   </script>
   </body>
 </html>
