@@ -938,7 +938,38 @@
           padding: 0.3rem 0.7rem;
         }
       }
-    </style>
+    
+    /* --- New Project Toast Notification --- */
+    .new-proj-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      max-width: 320px;
+      background: #222;
+      border: 1px solid #ffbd39;
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+      padding: 1rem 1.2rem;
+      z-index: 9999;
+      transform: translateY(140%);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(.2,.9,.3,1.3), opacity 0.5s ease;
+    }
+    .new-proj-toast.show { transform: translateY(0); opacity: 1; }
+    .new-proj-toast .npt-close {
+      position: absolute; top: 8px; right: 10px; background: none; border: none;
+      color: #999; font-size: 1.1rem; cursor: pointer; line-height: 1;
+    }
+    .new-proj-toast .npt-title { color: #ffbd39; font-weight: 700; font-size: 0.95rem; margin: 0 0 0.3rem; padding-right: 1.2rem; }
+    .new-proj-toast .npt-text { color: #ddd; font-size: 0.85rem; line-height: 1.5; margin: 0 0 0.7rem; }
+    .new-proj-toast .npt-link {
+      display: inline-block; background: linear-gradient(45deg,#ffbd39,#ff6b35); color:#181818;
+      text-decoration:none; padding: 0.4rem 1rem; border-radius: 16px; font-weight: 700; font-size: 0.8rem;
+    }
+    @media (max-width: 480px) {
+      .new-proj-toast { left: 16px; right: 16px; max-width: none; bottom: 16px; }
+    }
+  </style>
   </head>
   <body>
     <nav class="navbar">
@@ -1480,5 +1511,25 @@ window.onload = function () {
     document.getElementById("experience").textContent = experience;
 };
 </script>
-  </body>
+  
+  <div class="new-proj-toast" id="newProjToast">
+    <button class="npt-close" onclick="document.getElementById('newProjToast').classList.remove('show')">&times;</button>
+    <div class="npt-title">🎮 New Project!</div>
+    <div class="npt-text">I just launched a multiplayer Tic Tac Toe game — play against a friend or the computer!</div>
+    <a href="../projects/" class="npt-link">Check it out →</a>
+  </div>
+
+  <script>
+    (function () {
+      var expiry = new Date("2027-05-09T00:00:00");
+      if (new Date() >= expiry) return; // past expiry window, never show again
+      var toast = document.getElementById("newProjToast");
+      if (!toast) return;
+      setTimeout(function () {
+        toast.classList.add("show");
+        setTimeout(function () { toast.classList.remove("show"); }, 9000);
+      }, 1800);
+    })();
+  </script>
+</body>
 </html>
