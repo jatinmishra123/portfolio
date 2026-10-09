@@ -364,6 +364,20 @@
         text-align: center;
         cursor: default;
       }
+      .game-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: linear-gradient(45deg, #00c9a7, #845ec2);
+        color: #fff;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        z-index: 2;
+        letter-spacing: 0.03em;
+      }
       .project-note {
         color: #999;
         font-size: 0.85rem;
@@ -997,6 +1011,9 @@
         <button class="category-btn" onclick="filterProjects('ecommerce')">
           E-commerce
         </button>
+        <button class="category-btn" onclick="filterProjects('game')">
+          🎮 Games
+        </button>
       </div>
 
       <div class="featured-project">
@@ -1123,6 +1140,45 @@
     </div>
   </div>
 </div>
+
+        <div class="project-card" data-category="game web">
+          <span class="game-badge">🎮 GAME</span>
+          <img
+            src="../images/tictactoe-preview.jpg"
+            alt="Tic Tac Toe Game"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3 class="project-title">
+              <a href="https://tic-tac-toe-game-mca.netlify.app/" target="_blank"
+                >Tic Tac Toe – Multiplayer Browser Game</a
+              >
+            </h3>
+            <p class="project-description">
+              Built a fully-featured Tic Tac Toe game with multiple board
+              sizes, a Computer opponent with difficulty levels, and real-time
+              online multiplayer via shareable links.
+            </p>
+            <p class="project-features">
+              • 3x3 / 4x4 / 5x5 board sizes<br />• Computer AI (Easy & Hard)<br />• Online multiplayer with shareable link & in-game chat<br />• Score tracking & downloadable scorecard
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Real-time Multiplayer</span>
+              <span class="tech-tag">Game AI</span>
+              <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://tic-tac-toe-game-mca.netlify.app/"
+                target="_blank"
+                class="project-link"
+                >🎮 Play Now</a
+              >
+            </div>
+          </div>
+        </div>
+
         <div class="project-card" data-category="ecommerce web">
           <img
             src="../images/icon.png"
