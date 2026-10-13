@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Home - Jatin Mishra Portfolio" />
     <meta name="twitter:description" content="Jatin Mishra — Full Stack Developer specializing in PHP, Laravel, React.js & MySQL. Explore my projects, experience, and get in touch for web development opportunities." />
     <meta name="twitter:image" content="https://jatinmishra123.github.io/portfolio/images/jatinmishra.jpg" />
-    <link rel="icon" type="image/jpeg" href="images/jatinmishra.jpg">
+    <link rel="icon" type="image/jpeg" href="images/jatinmishra-nav.jpg">
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
       rel="stylesheet"
@@ -930,7 +930,67 @@
     @media (max-width: 480px) {
       .new-proj-toast { left: 16px; right: 16px; max-width: none; bottom: 16px; }
     }
-  </style>
+  
+    /* --- Navbar entrance animation --- */
+    @keyframes navbar-drop {
+      0%   { transform: translateY(-100%); opacity: 0; }
+      60%  { transform: translateY(6px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .navbar { animation: navbar-drop 0.7s cubic-bezier(.22,1,.36,1) both; }
+
+    @keyframes navbrand-in {
+      0%   { opacity: 0; transform: translateX(-24px) scale(0.85); }
+      100% { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    .nav-brand { animation: navbrand-in 0.6s ease-out 0.15s both; }
+
+    @keyframes navlink-in {
+      0%   { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .navbar > div:last-child > a {
+      opacity: 0;
+      animation: navlink-in 0.4s ease-out both;
+    }
+    .navbar > div:last-child > a:nth-child(1) { animation-delay: 0.26s; }
+    .navbar > div:last-child > a:nth-child(2) { animation-delay: 0.33s; }
+    .navbar > div:last-child > a:nth-child(3) { animation-delay: 0.40s; }
+    .navbar > div:last-child > a:nth-child(4) { animation-delay: 0.47s; }
+    .navbar > div:last-child > a:nth-child(5) { animation-delay: 0.54s; }
+    .navbar > div:last-child > a:nth-child(6) { animation-delay: 0.61s; }
+    /* --- End navbar entrance animation --- */
+
+    /* --- Back to Top button --- */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ffbd39, #ff6b35);
+      color: #181818;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(255,189,57,0.35); }
+    @media (max-width: 480px) {
+      .back-to-top { bottom: 16px; left: 16px; width: 42px; height: 42px; font-size: 1.15rem; }
+    }
+</style>
   </head>
   <body>
     <nav class="navbar">
@@ -1276,7 +1336,7 @@
         <div class="footer-col-left">
           <div class="brand-logo-group">
             <div class="brand-logo-img-wrapper">
-              <img
+              <img loading="lazy"
                 src="images/jatinmishra.jpg"
                 alt="Jatin Mishra"
                 class="brand-logo-img"
@@ -1477,6 +1537,25 @@ window.onload = function () {
         toast.classList.add("show");
         setTimeout(function () { toast.classList.remove("show"); }, 9000);
       }, 1800);
+    })();
+  </script>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">&#8593;</button>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("backToTop");
+      if (!btn) return;
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 400) {
+          btn.classList.add("show");
+        } else {
+          btn.classList.remove("show");
+        }
+      });
+      btn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     })();
   </script>
 </body>
