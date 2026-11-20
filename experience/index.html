@@ -286,7 +286,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
 }
     /* --- Back to Top button --- */
     .back-to-top {
@@ -350,94 +350,25 @@
         <p class="exp-subtitle">Full Stack Developer building robust web solutions</p>
       </div>
     </div>
-
-  
 <div class="timeline">
-    <div class="exp-card">
+      <div class="exp-card">
         <h3>Akiko Sherman Infotech Pvt. Ltd.</h3>
+    <span class="exp-role">Software Engineer</span>
 
-        <span class="exp-role">Software Engineer</span>
-
-       <div class="exp-meta">
-    <span class="exp-duration">
-        15-Dec-2025 – Present
-    </span>
-
-    <span class="exp-duration" id="totalExperience"
-          style="font-weight: bold; color: #2563eb; margin-left: 10px;">
-    </span>
+<div class="exp-meta">
+    <span class="exp-duration">15-Dec-2025 – Present :</span>
+    <span class="exp-duration" id="totalExperience"></span>
 </div>
-
         <ul>
-            <li>Developing enterprise-level web applications using <strong>Laravel</strong> and <strong>PHP</strong>.</li>
-            <li>Crafting dynamic, responsive front-ends with <strong>React.js</strong>.</li>
-            <li>Optimizing database performance and managing collaborative workflows via <strong>Git</strong>.</li>
+          <li>Developing enterprise-level web applications using **Laravel** and **PHP**.</li>
+          <li>Crafting dynamic, responsive front-ends with **React.js**.</li>
+          <li>Optimizing database performance and managing collaborative workflows via **Git**.</li>
         </ul>
-
         <div class="skill-pills">
-            <span class="pill">Laravel</span>
-            <span class="pill">React.js</span>
-            <span class="pill">PHP</span>
-            <span class="pill">MySQL</span>
-            <span class="pill">Git</span>
+          <span class="pill">Laravel</span><span class="pill">React.js</span><span class="pill">PHP</span><span class="pill">MySQL</span><span class="pill">Git</span>
         </div>
-    </div>
-</div>
+      </div>
 
-
-<script>
-function calculateExperience() {
-    const joiningDate = new Date(2025, 11, 15);
-    const today = new Date();
-
-    if (today < joiningDate) {
-        document.getElementById("totalExperience").innerText =
-            "Total Experience This company: 0 Days";
-        return;
-    }
-
-    let years = today.getFullYear() - joiningDate.getFullYear();
-    let months = today.getMonth() - joiningDate.getMonth();
-    let days = today.getDate() - joiningDate.getDate();
-
-    if (days < 0) {
-        months--;
-        const previousMonthDays = new Date(
-            today.getFullYear(),
-            today.getMonth(),
-            0
-        ).getDate();
-
-        days += previousMonthDays;
-    }
-
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
-
-    // If even 1 extra day exists, count it as a full month
-    if (days > 0) {
-        months++;
-    }
-
-    // Convert 12 months into 1 year
-    if (months >= 12) {
-        years += Math.floor(months / 12);
-        months = months % 12;
-    }
-
-    let experience = [];
-
-    if (years > 0) experience.push(years + " Year" + (years > 1 ? "s" : ""));
-    if (months > 0) experience.push(months + " Month" + (months > 1 ? "s" : ""));
-
-    document.getElementById("totalExperience").innerText =
-        "Total Experience: " + (experience.join(" ") || "0 Days");
-}
-
-calculateExperience();
-</script>
 
 
       <div class="exp-card">
@@ -701,6 +632,61 @@ calculateExperience();
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
     })();
+
+
+function calculateExperience() {
+    const joiningDate = new Date(2025, 11, 15);
+    const today = new Date();
+
+    if (today < joiningDate) {
+        document.getElementById("totalExperience").innerText =
+            "Total Experience: 0 Days";
+        return;
+    }
+
+    let years = today.getFullYear() - joiningDate.getFullYear();
+    let months = today.getMonth() - joiningDate.getMonth();
+    let days = today.getDate() - joiningDate.getDate();
+
+    if (days < 0) {
+        months--;
+        const previousMonthDays = new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            0
+        ).getDate();
+
+        days += previousMonthDays;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    // If even 1 extra day exists, count it as a full month
+    if (days > 0) {
+        months++;
+    }
+
+    // Convert 12 months into 1 year
+    if (months >= 12) {
+        years += Math.floor(months / 12);
+        months = months % 12;
+    }
+
+    let experience = [];
+
+    if (years > 0) experience.push(years + " Year" + (years > 1 ? "s" : ""));
+    if (months > 0) experience.push(months + " Month" + (months > 1 ? "s" : ""));
+
+    document.getElementById("totalExperience").innerText =
+        "Total Experience: " + (experience.join(" ") || "0 Days");
+}
+
+calculateExperience();
+
+
   </script>
 </body>
 </html>
